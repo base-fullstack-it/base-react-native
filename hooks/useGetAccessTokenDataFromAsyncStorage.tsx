@@ -16,6 +16,7 @@ export default () => {
                 token:access_token,
                 token_type: token_type
             }))
+            // i think it might be okay to wait 1500ms to ensure token storage was pulled from?
         })()
     },[]);
 }

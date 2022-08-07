@@ -18,10 +18,6 @@ export default () => {
       gestureEnabled: false,
     }}
     >
-        {/*TODO: if refactor stacks groups into own component becomes possible then refactor only return jsx not stack*/}
-        {/*https://stackoverflow.com/questions/71659381/reusing-stack-with-group-when-nesting-navigation */}
-        {/*{!auth ?*/}
-
         <Stack.Screen
             name='Main'
             component={DrawerNavigator}
