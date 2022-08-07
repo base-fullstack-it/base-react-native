@@ -8,7 +8,6 @@ export default () => {
     //initial state should always be null
     useGetAccessTokenDataFromAsyncStorage();
     const auth = useSelector(selectAuth);
-    console.log(auth,'auth from director')
 
     return (
         !auth.token

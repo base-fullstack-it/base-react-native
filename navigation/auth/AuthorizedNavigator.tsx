@@ -1,12 +1,13 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from "../../screen/LoginScreen";
 import DrawerNavigator from "../DrawerNavigator";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
 export type RootStackParamsList = {
   Main: undefined;
 };
 
-const Stack = createStackNavigator<RootStackParamsList>();
+const Stack = createNativeStackNavigator<RootStackParamsList>();
 
 export default () => {
     console.log("your authorized!")

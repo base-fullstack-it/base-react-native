@@ -44,9 +44,8 @@ const dynamicBaseQuery: BaseQueryFn<
     const queryParamsString = qs.stringify(queryParamsMap);
     console.log(queryParamsString);
     const adjustedUrl = vers + urlEnd + "?" + queryParamsString;
-    // console.log(adjustedUrl,'adjustedUrladjustedUrl')s
+    console.log(adjustedUrl,'adjustedUrladjustedUrl')
     const adjustedArgs = typeof args === 'string' ? adjustedUrl : { ...args, url: adjustedUrl }
-    console.log(adjustedArgs,'adjustedArgs FOR APP')
     return baseQuery(adjustedArgs, api, extraOptions)
 
 }

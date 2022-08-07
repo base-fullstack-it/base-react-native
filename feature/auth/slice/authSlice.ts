@@ -33,7 +33,6 @@ export const authSlice = createSlice({
       //     token_type: action.payload.token_type
       //   })
       // );
-      console.log(state,'state from auth slice')
       state.token = action.payload.token;
       state.token_type = action.payload.token_type;
     },
