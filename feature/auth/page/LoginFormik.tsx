@@ -36,10 +36,10 @@ export default ({loginUser}:LoginFormInterface) => {
             console.log(values,'SUBMISS'); // test
         await loginUser(values);
         Toast.show({
-            type: 'success',
+            type: 'primaryColorToast',
             text1: 'Welcome back!',
-            onPress: () => Toast.hide()
-            // visibilityTime:9000
+            onPress: () => Toast.hide(),
+            visibilityTime:2300
             // autoHide:false
         });
         // }, 2000)

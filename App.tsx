@@ -5,6 +5,7 @@ import {store} from "./app/store";
 import {NavigationContainer} from "@react-navigation/native";
 import AuthorizationDirector from "./navigation/auth/AuthorizationDirector";
 import Toast from 'react-native-toast-message';
+import toastConfig from "./config/toastConfig";
 
 
 export default function App() {
@@ -15,7 +16,7 @@ export default function App() {
                 <AuthorizationDirector/>
             </NavigationContainer>
         </Provider>
-        <Toast/>
+        <Toast config={toastConfig}/>
         </>
 
 }

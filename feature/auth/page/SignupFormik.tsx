@@ -6,6 +6,7 @@ import TextFieldWrapper from "../../../components/formik/TextFieldWrapper";
 import SubmitFormButton from "../../../components/formik/SubmitFormButton";
 import OverlayComponent from "../../../components/OverlayComponent";
 import useToggle from "../../../hooks/useToggle";
+import Toast from "react-native-toast-message";
 
 export interface SignupFormValuesInterface{
     firstName:string;
@@ -47,6 +48,14 @@ export default ({handleRegister}:SignupFormInterface) => {
     const submitHandler = async (values:SignupFormValuesInterface, actions:any) => {
         actions.setSubmitting(false);
         await handleRegister(values);
+        Toast.show({
+            type: 'success',
+            text1: 'Welcome To Grassp Health!',
+            text2: 'Look at our menu to see products available near you.',
+            onPress: () => Toast.hide()
+            // visibilityTime:9000
+            // autoHide:false
+        });
     }
 
     return (
