@@ -1,7 +1,5 @@
 import {Text, View} from "react-native";
-import {useEffect} from "react";
-import {shallowEqual, useDispatch, useSelector} from "react-redux";
-
+import { FAB } from "@rneui/themed";
 
 const MenuScreen: React.FC = props => {
     // const loggedInUser = useSelector(getLoggedInUser, shallowEqual);
