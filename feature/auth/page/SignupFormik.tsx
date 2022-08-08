@@ -57,6 +57,7 @@ export default ({handleRegister}:SignupFormInterface) => {
     return (
         <Formik
             initialValues={initialFormState}
+            validationSchema={validationSchema}
             onSubmit={submitHandler}
         >
             {({ handleChange, handleBlur, handleSubmit, values }) => (

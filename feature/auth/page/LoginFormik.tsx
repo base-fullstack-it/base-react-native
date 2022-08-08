@@ -27,35 +27,33 @@ export default ({loginUser}:LoginFormInterface) => {
     const submitHandler = async (values:LoginFormValuesInterface, actions:any) => {
         // setTimeout(() => {
             // setSubmitting not needed with async
-            actions.setSubmitting(false);
+            // actions.setSubmitting(false);
             // actions.resetForm(initialFormState);//TODO uncomment this it works well some sort of inbuilt function
             setOpen(true);
             console.log(values,'SUBMISS'); // test
         await loginUser(values);
         // }, 2000)
     }
-    const handleClose = (event:any, reason:any) => {
-        if (reason === "clickaway") {
-            return
-        }
-        setOpen(false)
-    }
+
 
     return (
         <Formik
-            initialValues={{ email: '',password:'' }}
+            initialValues={initialFormState}
+            validationSchema={validationSchema}
             onSubmit={submitHandler}
         >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
                 <View>
                     <TextInput
                         onChangeText={handleChange('email')}
+                        placeholder={"Email"}
                         onBlur={handleBlur('email')}
                         autoCapitalize='none'
                         value={values.email}
                     />
                     <TextInput
                         onChangeText={handleChange('password')}
+                        placeholder={"Password"}
                         onBlur={handleBlur('password')}
                         textContentType={"password"}
                         autoCapitalize='none'
