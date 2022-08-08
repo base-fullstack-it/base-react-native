@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import {boolean, date, number, object, string} from "yup";
 import {Form, Formik} from 'formik';
 import {Button, TextInput, View} from "react-native";
+import TextFieldWrapper from "../../../components/formik/TextFieldWrapper";
+import SubmitFormButton from "../../../components/formik/SubmitFormButton";
 
 export interface SignupFormValuesInterface{
     firstName:string;
@@ -16,7 +18,7 @@ const initialFormState = {
     email: "",
     phoneNumber: "",
     password:"",
-    termsOfService: false
+    // termsOfService: false
 }
 interface SignupFormInterface{
     handleRegister(values:SignupFormValuesInterface): Promise<void>;
@@ -33,9 +35,9 @@ const validationSchema = object({
         .typeError("Please enter a valid phone number")
         .required("Phone number required"),
     message: string(),
-    termsOfService: boolean()
-        .oneOf([true], "The terms and conditions must be accepted.")
-        .required("The terms and conditions must be accepted.")
+    // termsOfService: boolean()
+    //     .oneOf([true], "The terms and conditions must be accepted.")
+    //     .required("The terms and conditions must be accepted.")
 })
 
 export default ({handleRegister}:SignupFormInterface) => {
@@ -60,40 +62,36 @@ export default ({handleRegister}:SignupFormInterface) => {
             validationSchema={validationSchema}
             onSubmit={submitHandler}
         >
-            {({ handleChange, handleBlur, handleSubmit, values }) => (
+            {({ handleChange }) => (
                 <View>
-                    <TextInput
+                    <TextFieldWrapper
                         onChangeText={handleChange('email')}
-                        onBlur={handleBlur('email')}
+                        name={"email"}
+                        placeholder={"Email"}
                         autoCapitalize='none'
-                        value={values.email}
                     />
-                    <TextInput
+                    <TextFieldWrapper
                         onChangeText={handleChange('firstName')}
-                        onBlur={handleBlur('First Name')}
-                        autoCapitalize='none'
-                        value={values.firstName}
+                        name={"firstName"}
+                        placeholder={"First Name"}
                     />
-                    <TextInput
+                    <TextFieldWrapper
                         onChangeText={handleChange('lastName')}
-                        onBlur={handleBlur('Last Name')}
-                        autoCapitalize='none'
-                        value={values.lastName}
+                        name={"lastName"}
+                        placeholder={"Last Name"}
                     />
-                    <TextInput
+                    <TextFieldWrapper
                         onChangeText={handleChange('password')}
-                        onBlur={handleBlur('password')}
-                        textContentType={"password"}
-                        autoCapitalize='none'
-                        value={values.password}
+                        name={"password"}
+                        placeholder={"password"}
+                        secureTextEntry={true}
                     />
-                    <TextInput
+                    <TextFieldWrapper
                         onChangeText={handleChange('phoneNumber')}
-                        onBlur={handleBlur('phoneNumber')}
-                        autoCapitalize='none'
-                        value={values.phoneNumber}
+                        name={"phoneNumber"}
+                        placeholder={"Phone Number"}
                     />
-                    <Button onPress={() => handleSubmit()} title="Submit" />
+                    <SubmitFormButton>Submit</SubmitFormButton>
                 </View>
             )}
         </Formik>

@@ -44,20 +44,18 @@ export default ({loginUser}:LoginFormInterface) => {
             validationSchema={validationSchema}
             onSubmit={submitHandler}
         >
-            {({ handleChange, handleBlur }) => (
+            {({ handleChange }) => (
                 <View>
                     <TextFieldWrapper
                         onChangeText={handleChange('email')}
                         name={"email"}
                         placeholder={"Email"}
-                        // onBlur={handleBlur('email')}
                         autoCapitalize='none'
                     />
                     <TextFieldWrapper
                         onChangeText={handleChange('password')}
                         name={"password"}
                         placeholder={"Password"}
-                        // onBlur={handleBlur('password')}
                         autoCapitalize='none'
                         secureTextEntry={true}
                     />
