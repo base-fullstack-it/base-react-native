@@ -13,11 +13,12 @@ export default ({ children, ...otherProps }) => {
     const configButton = {
         // fullWidth: true,
         type: "solid",
+
         onPress: handleSubmit,
         // disabled: isSubmitting,
         ...otherProps
     };
-    return <Button {...configButton} >
+    return <Button {...configButton} size={"sm"} >
         {children}
     </Button>
 }
