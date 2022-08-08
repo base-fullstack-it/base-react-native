@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import {boolean, date, number, object, string} from "yup";
 import {Form, Formik} from 'formik';
 import {Button, TextInput, View} from "react-native";
+import SubmitFormButton from "../../../components/formik/SubmitFormButton";
+import TextFieldWrapper from "../../../components/formik/TextFieldWrapper";
 
 export interface LoginFormValuesInterface {
     email:string;
@@ -42,24 +44,25 @@ export default ({loginUser}:LoginFormInterface) => {
             validationSchema={validationSchema}
             onSubmit={submitHandler}
         >
-            {({ handleChange, handleBlur, handleSubmit, values }) => (
+            {({ handleChange, handleBlur }) => (
                 <View>
-                    <TextInput
+                    <TextFieldWrapper
                         onChangeText={handleChange('email')}
+                        name={"email"}
                         placeholder={"Email"}
-                        onBlur={handleBlur('email')}
+                        // onBlur={handleBlur('email')}
                         autoCapitalize='none'
-                        value={values.email}
                     />
-                    <TextInput
+                    <TextFieldWrapper
                         onChangeText={handleChange('password')}
+                        name={"password"}
                         placeholder={"Password"}
-                        onBlur={handleBlur('password')}
-                        textContentType={"password"}
+                        // onBlur={handleBlur('password')}
                         autoCapitalize='none'
-                        value={values.password}
+                        secureTextEntry={true}
                     />
-                    <Button onPress={() => handleSubmit()} title="Submit" />
+                    {/*<Button onPress={() => handleSubmit()} title="Submit" />*/}
+                    <SubmitFormButton>Submit</SubmitFormButton>
                 </View>
             )}
         </Formik>
