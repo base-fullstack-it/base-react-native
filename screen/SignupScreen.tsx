@@ -5,8 +5,8 @@ import {View} from "react-native";
 
 export default () => {
 
-
     const handleRegister = useRegister();
+
     return <SignupFormik
         handleRegister={handleRegister}
     />

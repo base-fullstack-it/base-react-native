@@ -68,11 +68,29 @@ export default ({handleRegister}:SignupFormInterface) => {
                         value={values.email}
                     />
                     <TextInput
+                        onChangeText={handleChange('firstName')}
+                        onBlur={handleBlur('First Name')}
+                        autoCapitalize='none'
+                        value={values.firstName}
+                    />
+                    <TextInput
+                        onChangeText={handleChange('lastName')}
+                        onBlur={handleBlur('Last Name')}
+                        autoCapitalize='none'
+                        value={values.lastName}
+                    />
+                    <TextInput
                         onChangeText={handleChange('password')}
                         onBlur={handleBlur('password')}
                         textContentType={"password"}
                         autoCapitalize='none'
                         value={values.password}
+                    />
+                    <TextInput
+                        onChangeText={handleChange('phoneNumber')}
+                        onBlur={handleBlur('phoneNumber')}
+                        autoCapitalize='none'
+                        value={values.phoneNumber}
                     />
                     <Button onPress={() => handleSubmit()} title="Submit" />
                 </View>
