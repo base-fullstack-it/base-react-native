@@ -4,6 +4,8 @@ import {Form, Formik} from 'formik';
 import {Button, TextInput, View} from "react-native";
 import TextFieldWrapper from "../../../components/formik/TextFieldWrapper";
 import SubmitFormButton from "../../../components/formik/SubmitFormButton";
+import OverlayComponent from "../../../components/OverlayComponent";
+import useToggle from "../../../hooks/useToggle";
 
 export interface SignupFormValuesInterface{
     firstName:string;
@@ -42,18 +44,9 @@ const validationSchema = object({
 
 export default ({handleRegister}:SignupFormInterface) => {
 
-    const [open, setOpen] = useState(false)
-
     const submitHandler = async (values:SignupFormValuesInterface, actions:any) => {
         actions.setSubmitting(false);
-        setOpen(true);
         await handleRegister(values);
-    }
-    const handleClose = (event:any, reason:any) => {
-        if (reason === "clickaway") {
-            return
-        }
-        setOpen(false)
     }
 
     return (

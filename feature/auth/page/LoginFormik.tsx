@@ -4,6 +4,7 @@ import {Form, Formik} from 'formik';
 import {Button, TextInput, View} from "react-native";
 import SubmitFormButton from "../../../components/formik/SubmitFormButton";
 import TextFieldWrapper from "../../../components/formik/TextFieldWrapper";
+import Toast from 'react-native-toast-message';
 
 export interface LoginFormValuesInterface {
     email:string;
@@ -34,6 +35,13 @@ export default ({loginUser}:LoginFormInterface) => {
             setOpen(true);
             console.log(values,'SUBMISS'); // test
         await loginUser(values);
+        Toast.show({
+            type: 'success',
+            text1: 'Welcome back!',
+            onPress: () => Toast.hide()
+            // visibilityTime:9000
+            // autoHide:false
+        });
         // }, 2000)
     }
 

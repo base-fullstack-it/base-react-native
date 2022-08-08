@@ -4,14 +4,19 @@ import {Provider} from "react-redux";
 import {store} from "./app/store";
 import {NavigationContainer} from "@react-navigation/native";
 import AuthorizationDirector from "./navigation/auth/AuthorizationDirector";
+import Toast from 'react-native-toast-message';
+
 
 export default function App() {
 
-    return <Provider store={store}>
-        <NavigationContainer>
-            <AuthorizationDirector/>
-        </NavigationContainer>
-    </Provider>
+    return <>
+        <Provider store={store}>
+            <NavigationContainer>
+                <AuthorizationDirector/>
+            </NavigationContainer>
+        </Provider>
+        <Toast/>
+        </>
 
 }
 
