@@ -49,13 +49,14 @@ export default ({handleRegister}:SignupFormInterface) => {
         actions.setSubmitting(false);
         await handleRegister(values);
         Toast.show({
-            type: 'success',
+            type: 'primaryColorToast',
             text1: 'Welcome To Grassp Health!',
-            text2: 'Look at our menu to see products available near you.',
-            onPress: () => Toast.hide()
-            // visibilityTime:9000
+            // text2: 'Look at our menu to see products available near you.',
+            onPress: () => Toast.hide(),
+            visibilityTime:2600
             // autoHide:false
         });
+
     }
 
     return (
