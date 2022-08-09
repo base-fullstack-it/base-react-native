@@ -40,12 +40,14 @@ export default () => {
         />
         <Stack.Group screenOptions={({route,navigation}) => ({
 
-            headerLeft:() => (<Button   icon={<Icon
-                color={"white"}
-                type={"antdesign"}
-                name='close' />
-            }
-                onPress={()=> navigation.goBack()}/>),
+            headerLeft:() => (
+                <Button
+                    icon={<Icon
+                        color={"white"}
+                        type={"antdesign"}
+                        name='close' />
+            } onPress={()=> navigation.goBack()}/>
+            ),
             presentation:"modal"
         })
         }>
