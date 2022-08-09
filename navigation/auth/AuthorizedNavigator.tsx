@@ -6,10 +6,12 @@ import MainScreen from "../../screen/MainScreen";
 import RightDrawerScreen from "../../feature/drawer/right/RightDrawerScreen";
 import ProfileScreen from "../../screen/ProfileScreen";
 import {Button, Icon, useTheme} from "@rneui/themed";
+import CheckoutScreen from "../../screen/CheckoutScreen";
 
 export type AuthorizedParamList = {
   Main: undefined;
   Profile: undefined;
+  Checkout: undefined;
 };
 
 const Stack = createNativeStackNavigator<AuthorizedParamList>();
@@ -48,6 +50,11 @@ export default () => {
                         name='close' />
             } onPress={()=> navigation.goBack()}/>
             ),
+            headerTintColor:"white",
+            headerStyle:{
+                backgroundColor:theme.theme.colors.primary,
+            },
+            // presentation:"fullScreenModal" //sonic uses this it appears, but then chagnes ios text to white
             presentation:"modal"
         })
         }>
@@ -55,16 +62,17 @@ export default () => {
                 name='Profile'
                 component={ProfileScreen}
                 options={{
-                    headerTitle:"Account Settings",
-                    headerTintColor:"white",
-                    headerStyle:{
-                        backgroundColor:theme.theme.colors.primary
-                    },
+                    headerTitle:"Account Settings"
                 }}
             />
+        <Stack.Screen
+            name='Checkout'
+            component={CheckoutScreen}
+            options={{
+                headerTitle:"Check Out",
+            }}
+        />
         </Stack.Group>
-
-
     </Stack.Navigator>
   );
 };
