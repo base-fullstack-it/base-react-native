@@ -6,15 +6,23 @@ import {useNavigation} from "@react-navigation/native";
 
 const ProfileScreen = () =>{
     const navigation = useNavigation();
-    return <SafeAreaView style={{
-    alignItems:"center",flex:1}}>
+    return <SafeAreaView style={
+        {
+            alignItems:"flex-start",alignContent:"space-between",
+            justifyContent:"space-between",
+            flex:1,
+            marginBottom:26,
+            marginLeft:23
+
+        }}>
         {/*<Button onPress={() => navigation.goBack()} title="Dismiss" />*/}
         <View style={{
-            flexDirection: "row",
         }}>
-            <Text>Profile Screen</Text>
-            <Text>Profile Screen</Text>
-            <Text>Profile Screen</Text>
+            <Text>Add Id Document</Text>
+            <Text>Add Medical Recommendation</Text>
+            <Text>Basic Information</Text>
+            <Text>Delivery Address</Text>
+            <Text>Signature</Text>
         </View>
         <Logout />
 

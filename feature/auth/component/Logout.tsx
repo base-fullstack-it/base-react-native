@@ -1,22 +1,25 @@
 import useLogout from "../../../hooks/useLogout";
 import {Button} from "@rneui/themed";
 import {globalStyles} from "../../../styles/globalStyles";
+import {View} from "react-native";
 
-const Logout = () => {
+export default () => {
 
     const handleLogout = useLogout();
 
     return (
+        <View>
         <Button
-            title={"LOG OUT"}
-            titleStyle={{color:"black", fontWeight:"600",fontSize:16}}
+            title={"Log Out"}
+            titleStyle={{color:"black", fontWeight:"700",fontSize:15,marginHorizontal:10,marginVertical:3}}
             size={"sm"}
             type="outline"
             color={"black"}
-            buttonStyle={[globalStyles.CircleButton,{borderColor:"black"}]}
+            buttonStyle={[globalStyles.CircleButton,{
+                borderColor:"black"}]}
             onPress={handleLogout}
         />
+        </View>
     )
 
 }
-export default Logout;
