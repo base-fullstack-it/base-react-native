@@ -1,6 +1,7 @@
 import {View,Text} from "react-native";
 import {DrawerContentComponentProps} from "@react-navigation/drawer";
 import {Button} from "@rneui/themed";
+import {globalStyles} from "../../../styles/globalStyles";
 
 export default (props: DrawerContentComponentProps) => {
 
@@ -10,11 +11,7 @@ export default (props: DrawerContentComponentProps) => {
             title="Check Out"
             titleStyle={{ fontWeight: '700' }}
             raised={false}
-            buttonStyle={{
-            borderWidth: 0,
-            borderRadius: 30,
-            borderColor: 'transparent',
-            }}
+            buttonStyle={globalStyles.CircleButton}
             containerStyle={{
                 width: 200,
             }}

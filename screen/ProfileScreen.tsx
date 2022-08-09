@@ -17,6 +17,7 @@ const ProfileScreen = () =>{
             <Text>Profile Screen</Text>
         </View>
         <Logout />
+
     </SafeAreaView>
 }
 export default ProfileScreen;

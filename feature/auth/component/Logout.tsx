@@ -1,23 +1,22 @@
-import {Text, TouchableOpacity, View} from "react-native";
-import {Ionicons} from "@expo/vector-icons";
 import useLogout from "../../../hooks/useLogout";
+import {Button} from "@rneui/themed";
+import {globalStyles} from "../../../styles/globalStyles";
 
 const Logout = () => {
 
     const handleLogout = useLogout();
 
     return (
-    <TouchableOpacity
-        onPress={handleLogout}
-    >
-    <View style={{
-        flexDirection: "row",
-    }}>
-        <Ionicons size={35}name={"log-out-outline"}/>
-        <Text style={{fontSize:25,marginTop:2,marginLeft:3}}>Logout</Text>
-
-    </View>
-    </TouchableOpacity>
+        <Button
+            title={"LOG OUT"}
+            titleStyle={{color:"black", fontWeight:"600",fontSize:16}}
+            size={"sm"}
+            type="outline"
+            color={"black"}
+            buttonStyle={[globalStyles.CircleButton,{borderColor:"black"}]}
+            onPress={handleLogout}
+        />
     )
+
 }
 export default Logout;
