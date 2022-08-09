@@ -1,5 +1,5 @@
 import {createDrawerNavigator} from "@react-navigation/drawer";
-import ViewOrderScreen from "../screen/ViewOrderScreen";
+import ViewOrderScreen from "../../../screen/ViewOrderScreen";
 
 export type ViewOrderParamList = {
 

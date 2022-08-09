@@ -7,7 +7,6 @@ const RightDrawer = createDrawerNavigator();
 export default () => {
     return (
         <RightDrawer.Navigator
-            useLegacyImplementation
             id="RightDrawer"
             drawerContent={(props) => <RightDrawerContent {...props} />}
             screenOptions={{

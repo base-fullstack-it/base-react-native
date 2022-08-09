@@ -16,9 +16,8 @@ export default () => {
   return (
     <Stack.Navigator
         initialRouteName='Login'
-        screenOptions={{
-      gestureEnabled: false,
-    }}
+        // screenOptions={{
+        // }}
     >
         <Stack.Screen
             name='Login'

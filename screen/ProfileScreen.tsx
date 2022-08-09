@@ -1,23 +1,22 @@
-import {Text, View} from "react-native";
+import {SafeAreaView, Text, View} from "react-native";
 import Logout from "../feature/auth/component/Logout";
-import {FAB} from "@rneui/themed";
+import FABMainMenuButtons from "../components/FABMainMenuButtons";
+import {Button} from "@rneui/themed";
+import {useNavigation} from "@react-navigation/native";
 
 const ProfileScreen = () =>{
-    return <View style={{
+    const navigation = useNavigation();
+    return <SafeAreaView style={{
     alignItems:"center",flex:1}}>
+        {/*<Button onPress={() => navigation.goBack()} title="Dismiss" />*/}
         <View style={{
             flexDirection: "row",
-
-
         }}>
             <Text>Profile Screen</Text>
             <Text>Profile Screen</Text>
             <Text>Profile Screen</Text>
         </View>
         <Logout />
-        <FAB
-            placement={"right"}
-        />
-    </View>
+    </SafeAreaView>
 }
 export default ProfileScreen;
