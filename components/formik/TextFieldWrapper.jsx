@@ -24,7 +24,7 @@ const TextFieldWrapper = ({ name, ...otherProps }) => {
 
   return <Input
       {...configTextField}
-      errorStyle={{ color: 'red' }}
+      // errorStyle={{ color: 'red' }}
   />
 };
 

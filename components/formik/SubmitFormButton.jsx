@@ -1,6 +1,7 @@
 import React from "react";
 import {useFormikContext} from "formik";
-import {Button} from "@rneui/base";
+import {Button} from "@rneui/themed";
+
 
 export default ({ children, ...otherProps }) => {
     const { submitForm, isSubmitting } = useFormikContext();

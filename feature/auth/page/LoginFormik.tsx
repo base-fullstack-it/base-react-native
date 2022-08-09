@@ -5,6 +5,7 @@ import {Button, TextInput, View} from "react-native";
 import SubmitFormButton from "../../../components/formik/SubmitFormButton";
 import TextFieldWrapper from "../../../components/formik/TextFieldWrapper";
 import Toast from 'react-native-toast-message';
+import {useTheme} from "@rneui/themed";
 
 export interface LoginFormValuesInterface {
     email:string;
@@ -23,6 +24,7 @@ const validationSchema = object({
     password: string().required("Password required"),
 })
 export default ({loginUser}:LoginFormInterface) => {
+    const theme = useTheme();
 
     const [open, setOpen] = useState(false)
 
@@ -68,7 +70,7 @@ export default ({loginUser}:LoginFormInterface) => {
                         secureTextEntry={true}
                     />
                     {/*<Button onPress={() => handleSubmit()} title="Submit" />*/}
-                    <SubmitFormButton>Submit</SubmitFormButton>
+                    <SubmitFormButton >Submit</SubmitFormButton>
                 </View>
             )}
         </Formik>

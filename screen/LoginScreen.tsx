@@ -10,7 +10,7 @@ const LoginScreen = () => {
     <LoginFormik
         loginUser={handleLogin}
     />
-    <Card.Divider style={{marginVertical:25}}color={"black"} />
+    <Card.Divider />
     <NavigateToSignupComponent />
   </Card>
 };

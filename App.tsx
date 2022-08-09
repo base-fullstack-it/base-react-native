@@ -6,16 +6,20 @@ import {NavigationContainer} from "@react-navigation/native";
 import AuthorizationDirector from "./navigation/auth/AuthorizationDirector";
 import Toast from 'react-native-toast-message';
 import toastConfig from "./config/toastConfig";
+import {ThemeProvider} from "@rneui/themed";
+import {theme} from "./theme/rneuiTheme";
 
 
 export default function App() {
 
     return <>
-        <Provider store={store}>
-            <NavigationContainer>
-                <AuthorizationDirector/>
-            </NavigationContainer>
-        </Provider>
+            <Provider store={store}>
+                <ThemeProvider theme={theme}>
+                    <NavigationContainer>
+                        <AuthorizationDirector/>
+                    </NavigationContainer>
+                </ThemeProvider>
+            </Provider>
         <Toast config={toastConfig}/>
         </>
 
