@@ -94,7 +94,7 @@ export default ({handleRegister}:SignupFormInterface) => {
                         name={"phoneNumber"}
                         placeholder={"Phone Number"}
                     />
-                    <SubmitFormButton>Submit</SubmitFormButton>
+                    <SubmitFormButton raised>Submit</SubmitFormButton>
                 </View>
             )}
         </Formik>

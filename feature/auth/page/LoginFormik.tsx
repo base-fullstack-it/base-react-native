@@ -70,7 +70,7 @@ export default ({loginUser}:LoginFormInterface) => {
                         secureTextEntry={true}
                     />
                     {/*<Button onPress={() => handleSubmit()} title="Submit" />*/}
-                    <SubmitFormButton >Submit</SubmitFormButton>
+                    <SubmitFormButton raised>Submit</SubmitFormButton>
                 </View>
             )}
         </Formik>

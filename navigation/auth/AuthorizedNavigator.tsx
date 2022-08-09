@@ -5,7 +5,7 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import MainScreen from "../../screen/MainScreen";
 import RightDrawerScreen from "../../feature/drawer/right/RightDrawerScreen";
 import ProfileScreen from "../../screen/ProfileScreen";
-import {useTheme} from "@rneui/themed";
+import {Button, Icon, useTheme} from "@rneui/themed";
 
 export type AuthorizedParamList = {
   Main: undefined;
@@ -38,7 +38,17 @@ export default () => {
                 // headerTitle: (props) => <LogoTitle />,
             }}
         />
-        <Stack.Group screenOptions={{presentation:"modal"}}>
+        <Stack.Group screenOptions={({route,navigation}) => ({
+
+            headerLeft:() => (<Button   icon={<Icon
+                color={"white"}
+                type={"antdesign"}
+                name='close' />
+            }
+                onPress={()=> navigation.goBack()}/>),
+            presentation:"modal"
+        })
+        }>
             <Stack.Screen
                 name='Profile'
                 component={ProfileScreen}
@@ -47,7 +57,7 @@ export default () => {
                     headerTintColor:"white",
                     headerStyle:{
                         backgroundColor:theme.theme.colors.primary
-                    }
+                    },
                 }}
             />
         </Stack.Group>
