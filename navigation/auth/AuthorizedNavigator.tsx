@@ -65,14 +65,16 @@ export default () => {
                     headerTitle:"Account Settings"
                 }}
             />
+
+        </Stack.Group>
         <Stack.Screen
             name='Checkout'
             component={CheckoutScreen}
             options={{
-                headerTitle:"Check Out",
+                headerTitle:"Check Out"
             }}
         />
-        </Stack.Group>
+
     </Stack.Navigator>
   );
 };
