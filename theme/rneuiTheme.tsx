@@ -11,6 +11,9 @@ export const theme = createTheme({
         CardDivider:{
             color:"#696773",
             style:{marginVertical:25}
+        },
+        FAB:{
+            color:"#2F84F1"
         }
     },
     lightColors:{

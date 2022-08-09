@@ -4,7 +4,6 @@ import {Input} from "@rneui/themed";
 
 const TextFieldWrapper = ({ name, ...otherProps }) => {
   const [field, meta] = useField(name);
-  console.log(field,'WHAT IS FIELD')
   const configTextField = {
     // onChangeText:field.onChange,
 

@@ -8,6 +8,7 @@ export default () => {
     //initial state should always be null
     useGetAccessTokenDataFromAsyncStorage();
     const auth = useSelector(selectAuth);
+//TODO: Instead of ACCESS_TOKEN_TYPES.user we should be calling the authorization servers' oauth/check_token(maybe diff name) route and getting the user role
 
     return (
         !auth.token

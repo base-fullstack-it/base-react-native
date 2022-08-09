@@ -5,7 +5,8 @@ import {useEffect} from "react";
 export default ():void => {
     const dispatchUserAuth = useDispatchUserAuth();
     const {data} = useGetAppAccessTokenQuery();
-    //get the app access token
+    //get the app access token,
+    // we never store it in the AsyncStorage
     useEffect(()=>{
         // if(data?.access_token)console.log(data, 'data from get AppAccessToken from auth')
         if(data?.access_token){
