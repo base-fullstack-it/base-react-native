@@ -1,4 +1,4 @@
-import {SafeAreaView, Text, View} from "react-native";
+import {SafeAreaView, StatusBar, Text, View} from "react-native";
 import Logout from "../feature/auth/component/Logout";
 import FABMainMenuButtons from "../components/FABMainMenuButtons";
 import {Button} from "@rneui/themed";
@@ -18,6 +18,8 @@ const ProfileScreen = () =>{
         {/*<Button onPress={() => navigation.goBack()} title="Dismiss" />*/}
         <View style={{
         }}>
+            <StatusBar barStyle="light-content"/>
+
             <Text>Add Id Document</Text>
             <Text>Add Medical Recommendation</Text>
             <Text>Basic Information</Text>

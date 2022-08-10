@@ -59,8 +59,7 @@ export default () => {
             headerStyle:{
                 backgroundColor:theme.theme.colors.primary,
             },
-            // presentation:"fullScreenModal" //sonic uses this it appears, but then chagnes ios text to white
-            presentation:"modal"
+            presentation:"fullScreenModal", //sonic uses this it appears, but then chagnes ios text to white
         })
         }>
             <Stack.Screen
@@ -70,15 +69,15 @@ export default () => {
                     headerTitle:"Account Settings"
                 }}
             />
-
+            <Stack.Screen
+                name='Checkout'
+                component={CheckoutScreen}
+                options={{
+                    headerTitle:"Check Out"
+                }}
+            />
         </Stack.Group>
-        <Stack.Screen
-            name='Checkout'
-            component={CheckoutScreen}
-            options={{
-                headerTitle:"Check Out"
-            }}
-        />
+
         <Stack.Screen
             name="MenuTabNavigation"
             component={MenuTabNavigation}
