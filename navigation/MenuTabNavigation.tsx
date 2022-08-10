@@ -23,7 +23,7 @@ export default () => {
   return (
     <Tab.Navigator initialRouteName={"PRODUCTS"}
                    tabBar={(props) => <TabNavigator {...props} />}
-                   style={{marginTop:insets.top}}
+                   // style={{marginTop:insets.top}}
         screenOptions={{
 
         }}

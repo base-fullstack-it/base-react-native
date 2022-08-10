@@ -3,7 +3,8 @@ import MainScreen from "../../../screen/MainScreen";
 import LeftDrawerContent from "./LeftDrawerContent";
 import MenuTabNavigation from "../../../navigation/MenuTabNavigation";
 import {View} from "react-native";
-import {useTheme} from "@rneui/themed";
+import {SearchBar, useTheme} from "@rneui/themed";
+import ViewSearchBarHeader from "../../../components/ViewSearchBarHeader";
 
 const LeftDrawer = createDrawerNavigator();
 //https://www.youtube.com/watch?v=aTO49WIxOfw&t=661s
@@ -14,14 +15,17 @@ export default () => {
             id="LeftDrawer"
             screenOptions={{
                 drawerPosition: 'left',
-                headerShown: false,
-                headerStyle:{marginTop:30}
+                // headerShown: false,
+                header: (props) => <ViewSearchBarHeader />,
             }}
             //TODO appears to be a bug where drawerContent needs a prop
             drawerContent={(props) => <LeftDrawerContent {...props} />}
         >
             <LeftDrawer.Screen options={{
-                headerLeft: () => <View></View>,
+                // header: (props) => <ViewSearchBarHeader />,
+
+                // headerLeft: () => <View></View>,
+                // headerTitle:() => <SearchBar/>
                 // headerStyle:{
                 //     backgroundColor: theme.theme.colors.primary
                 // }
