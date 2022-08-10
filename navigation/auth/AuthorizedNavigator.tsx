@@ -75,11 +75,6 @@ export default () => {
             />
         </Stack.Group>
 
-        <Stack.Screen
-            name="MenuTabNavigation"
-            component={MenuTabNavigation}
-
-        />
 
     </Stack.Navigator>
   );
