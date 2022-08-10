@@ -4,12 +4,15 @@ import MenuScreen from "../../screen/MenuScreen";
 import FABTabNavigator from "../../components/FABTabNavigator";
 import MenuTabNavigation from "../MenuTabNavigation";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
+import {useLoggedInUserQuery} from "../../services/userApiSlice";
 
 export type BottomTabNavigatorParamList = {
     MenuTabNavigation: undefined;
 };
 export default () => {
     const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
+    const {data} = useLoggedInUserQuery();
+    console.log(data,"d4ata")
 
     return (
         <Tab.Navigator
