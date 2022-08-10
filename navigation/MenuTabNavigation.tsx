@@ -15,15 +15,13 @@ export type MenuParamsList = {
 const Tab = createMaterialTopTabNavigator<MenuParamsList>();
 // const Tab = createMaterialBottomTabNavigator<MenuParamsList>();
 
-//TODO: unable to remove animation
-//will have to do for now
 export default () => {
     const theme = useTheme();
     const insets = useSafeAreaInsets();
   return (
     <Tab.Navigator initialRouteName={"PRODUCTS"}
                    tabBar={(props) => <TabNavigator {...props} />}
-                   // style={{marginTop:insets.top}}
+                   style={{marginTop:insets.top}}
         screenOptions={{
 
         }}

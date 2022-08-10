@@ -3,6 +3,7 @@ import {Ionicons} from "@expo/vector-icons";
 import MenuScreen from "../../screen/MenuScreen";
 import FABTabNavigator from "../../components/FABTabNavigator";
 import MenuTabNavigation from "../MenuTabNavigation";
+import {useSafeAreaInsets} from "react-native-safe-area-context";
 
 export type BottomTabNavigatorParamList = {
     MenuTabNavigation: undefined;

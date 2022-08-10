@@ -1,34 +1,19 @@
-import {View,Text} from "react-native";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
-import {SearchBar} from "@rneui/themed";
 import useToggle from "../hooks/useToggle";
+import SearchBarHeader from "./SearchBarHeader";
+import DefaultCustomHeader from "./DefaultCustomHeader";
+import {DrawerHeaderProps} from "@react-navigation/drawer";
 
-export default () => {
+export default ({drawerHeaderProps}:{drawerHeaderProps:DrawerHeaderProps}) => {
+    // drawerHeaderProps.options.headerLeft(()=><></>);
     const {
         invokeToggle,
         toggleState
 } = useToggle();
-    const inset = useSafeAreaInsets();
 
-    let renderView = <View style={{marginTop:inset.top}}>
-        {/*need to toggle this search bar based on cicking a search glass*/}
-        {/*then */}
-        {
-            // <View>
-            //     <Text>Grassp</Text>
-            // </View>
-            <SearchBar lightTheme/>
-        }
-    </View>
-    // return renderView;
-    return <View style={{marginTop:inset.top}}>
-        {/*need to toggle this search bar based on cicking a search glass*/}
-        {/*then */}
-        {
-            // <View>
-            //     <Text>Grassp</Text>
-            // </View>
-            <SearchBar lightTheme/>
-        }
-    </View>
+    return (
+        toggleState
+            ? <DefaultCustomHeader invokeToggle={invokeToggle}/>
+            : <SearchBarHeader invokeToggle={invokeToggle}/>
+        )
 }

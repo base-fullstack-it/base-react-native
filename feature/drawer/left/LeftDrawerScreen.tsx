@@ -13,8 +13,8 @@ export default () => {
             id="LeftDrawer"
             screenOptions={{
                 drawerPosition: 'left',
-                // headerShown: false,
-                header: (props) => <ViewSearchBarHeader />,
+                headerShown: false,
+                // header: (props) => <ViewSearchBarHeader drawerHeaderProps={props} />,
             }}
             //TODO appears to be a bug where drawerContent needs a prop
             drawerContent={(props) => <LeftDrawerContent {...props} />}
