@@ -1,6 +1,7 @@
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import React from "react";
 import {useTheme} from "@rneui/themed";
+import {useSafeAreaInsets} from "react-native-safe-area-context";
 type TopBarProps = {
     state: any,
     descriptors: any,
@@ -12,7 +13,7 @@ function TabNavigator({ state, descriptors, navigation, position }: TopBarProps)
     const theme = useTheme();
     return (
         <View style={{ display: "flex", flexDirection:"column", backgroundColor: "#ffffff"}}>
-            <View style={{ display: "flex", flexDirection: 'row'}}>
+            <View style={{ display: "flex", flexDirection: 'row',}}>
                 {state.routes.map((route: any, index:number) => {
                     const { options } = descriptors[route.key];
                     const label =

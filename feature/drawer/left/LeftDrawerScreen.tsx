@@ -6,7 +6,7 @@ import {View} from "react-native";
 import {useTheme} from "@rneui/themed";
 
 const LeftDrawer = createDrawerNavigator();
-
+//https://www.youtube.com/watch?v=aTO49WIxOfw&t=661s
 export default () => {
     const theme = useTheme();
     return (
@@ -14,7 +14,8 @@ export default () => {
             id="LeftDrawer"
             screenOptions={{
                 drawerPosition: 'left',
-                headerShown: true,
+                headerShown: false,
+                headerStyle:{marginTop:30}
             }}
             //TODO appears to be a bug where drawerContent needs a prop
             drawerContent={(props) => <LeftDrawerContent {...props} />}
@@ -24,7 +25,7 @@ export default () => {
                 // headerStyle:{
                 //     backgroundColor: theme.theme.colors.primary
                 // }
-                headerTitle:"grasspHealth"
+                // headerTitle:"grasspHealth"
             }} name="Home" component={MenuTabNavigation} />
         </LeftDrawer.Navigator>
     );
