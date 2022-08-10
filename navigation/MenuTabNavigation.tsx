@@ -13,7 +13,10 @@ export type MenuParamsList = {
     CATEGORIES: undefined;
 };
 const Tab = createMaterialTopTabNavigator<MenuParamsList>();
+// const Tab = createMaterialBottomTabNavigator<MenuParamsList>();
 
+//TODO: unable to remove animation
+//will have to do for now
 export default () => {
     const theme = useTheme();
     const insets = useSafeAreaInsets();
@@ -26,6 +29,7 @@ export default () => {
         }}
     >
         <Tab.Screen component={ProductScreen} name="PRODUCTS"
+                    //options={{title:"PRODUCTS"}}
         />
         <Tab.Screen component={ProductCategoryScreen} name="CATEGORIES" />
     </Tab.Navigator>
