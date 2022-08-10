@@ -5,6 +5,7 @@ import MenuTabNavigation from "../../../navigation/MenuTabNavigation";
 import {View} from "react-native";
 import {SearchBar, useTheme} from "@rneui/themed";
 import ViewSearchBarHeader from "../../../components/ViewSearchBarHeader";
+import BottomFABTabNavigator from "../../../navigation/bottom_tab/BottomFABTabNavigator";
 
 const LeftDrawer = createDrawerNavigator();
 //https://www.youtube.com/watch?v=aTO49WIxOfw&t=661s
@@ -30,7 +31,7 @@ export default () => {
                 //     backgroundColor: theme.theme.colors.primary
                 // }
                 // headerTitle:"grasspHealth"
-            }} name="Home" component={MenuTabNavigation} />
+            }} name="Home" component={BottomFABTabNavigator} />
         </LeftDrawer.Navigator>
     );
 }

@@ -7,6 +7,6 @@ export default () => {
     return <SafeAreaView style={{flex:1}}>
         {/*<StatusBar barStyle="light-content" backgroundColor={color:theme.theme.colors.primary}/>*/}
         <Text>WelcomeTo Product screen</Text>
-        <FABMainMenuButtons/>
+        {/*<FABMainMenuButtons/>*/}
     </SafeAreaView>
 }
