@@ -43,9 +43,6 @@ export default () => {
                 // headerTitle: (props) => <LogoTitle />,
             }}
         />
-        {/*stack navigator that  first calls menu*/}
-        {/*MenuTabNAvigation*/}
-        {/*menu main -> rightdraw default */}
         <Stack.Group screenOptions={({route,navigation}) => ({
             headerLeft:() => (
                 <Button

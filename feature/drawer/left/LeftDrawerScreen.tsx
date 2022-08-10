@@ -1,8 +1,5 @@
 import {createDrawerNavigator} from "@react-navigation/drawer";
-import MainScreen from "../../../screen/MainScreen";
 import LeftDrawerContent from "./LeftDrawerContent";
-import MenuTabNavigation from "../../../navigation/MenuTabNavigation";
-import {View} from "react-native";
 import {SearchBar, useTheme} from "@rneui/themed";
 import ViewSearchBarHeader from "../../../components/ViewSearchBarHeader";
 import BottomFABTabNavigator from "../../../navigation/bottom_tab/BottomFABTabNavigator";
@@ -24,7 +21,6 @@ export default () => {
         >
             <LeftDrawer.Screen options={{
                 // header: (props) => <ViewSearchBarHeader />,
-
                 // headerLeft: () => <View></View>,
                 // headerTitle:() => <SearchBar/>
                 // headerStyle:{

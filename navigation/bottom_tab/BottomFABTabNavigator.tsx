@@ -5,8 +5,7 @@ import FABTabNavigator from "../../components/FABTabNavigator";
 import MenuTabNavigation from "../MenuTabNavigation";
 
 export type BottomTabNavigatorParamList = {
-    mainzt: undefined;
-    // Cart: undefined;
+    MenuTabNavigation: undefined;
 };
 export default () => {
     const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
@@ -16,25 +15,17 @@ export default () => {
             screenOptions={{
                 tabBarShowLabel:false,
                 headerShown: false,
-                // tabBarActiveTintColor: CustomColors.primaryColor
             }}
             tabBar={(props) => <FABTabNavigator {...props}/>}
 
         >
-            <Tab.Screen name={"mainzt"}
+            <Tab.Screen name={"MenuTabNavigation"}
                         options={{
                             tabBarIcon:({color, size}) => (
                                 <Ionicons name={"home-outline"} color={color} size={size}/>
                             )
                         }}
                         component={MenuTabNavigation} />
-            {/*<Tab.Screen name={"Cart"}*/}
-            {/*            options={{*/}
-            {/*                tabBarIcon:({color, size}) => (*/}
-            {/*                    <Ionicons name={"cart-outline"} color={color} size={size}/>*/}
-            {/*                )*/}
-            {/*            }}*/}
-            {/*            component={CartScreen} />*/}
         </Tab.Navigator>
     )
 
