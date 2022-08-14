@@ -37,13 +37,7 @@ export default ({loginUser}:LoginFormInterface) => {
             setOpen(true);
             console.log(values,'SUBMISS'); // test
         await loginUser(values);
-        Toast.show({
-            type: 'primaryColorToast',
-            text1: 'Welcome back!',
-            onPress: () => Toast.hide(),
-            visibilityTime:1400
-            // autoHide:false
-        });
+
         // }, 2000)
     }
 

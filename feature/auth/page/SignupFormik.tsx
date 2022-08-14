@@ -48,14 +48,7 @@ export default ({handleRegister}:SignupFormInterface) => {
     const submitHandler = async (values:SignupFormValuesInterface, actions:any) => {
         actions.setSubmitting(false);
         await handleRegister(values);
-        Toast.show({
-            type: 'primaryColorToast',
-            text1: 'Welcome To Grassp Health!',
-            // text2: 'Look at our menu to see products available near you.',
-            onPress: () => Toast.hide(),
-            visibilityTime:1400
-            // autoHide:false
-        });
+
 
     }
 
