@@ -53,7 +53,7 @@ export default ({handleRegister}:SignupFormInterface) => {
             text1: 'Welcome To Grassp Health!',
             // text2: 'Look at our menu to see products available near you.',
             onPress: () => Toast.hide(),
-            visibilityTime:2600
+            visibilityTime:1400
             // autoHide:false
         });
 

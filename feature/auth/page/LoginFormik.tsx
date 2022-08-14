@@ -41,7 +41,7 @@ export default ({loginUser}:LoginFormInterface) => {
             type: 'primaryColorToast',
             text1: 'Welcome back!',
             onPress: () => Toast.hide(),
-            visibilityTime:2300
+            visibilityTime:1400
             // autoHide:false
         });
         // }, 2000)
