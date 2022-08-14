@@ -1,4 +1,4 @@
-import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import React from "react";
 import {useTheme} from "@rneui/themed";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
@@ -11,9 +11,11 @@ type TopBarProps = {
 
 function TabNavigator({ state, descriptors, navigation, position }: TopBarProps) {
     const theme = useTheme();
+    const insets = useSafeAreaInsets();
     return (
-        <View style={{ display: "flex", flexDirection:"column", backgroundColor: "#ffffff"}}>
+        <View style={{ display: "flex", flexDirection:"column", paddingTop:insets.top,backgroundColor:theme.theme.colors.primary}}>
             <View style={{ display: "flex", flexDirection: 'row',}}>
+                <StatusBar barStyle={"light-content"}/>
                 {state.routes.map((route: any, index:number) => {
                     const { options } = descriptors[route.key];
                     const label =
@@ -55,7 +57,11 @@ function TabNavigator({ state, descriptors, navigation, position }: TopBarProps)
                                 {
                                     display: "flex",
                                     flex: 1,
-                                    backgroundColor: "#0158BE"
+                                    backgroundColor: "#0158BE",
+                                    borderTopRightRadius:25,
+                                    borderTopLeftRadius:25,
+                                    borderBottomLeftRadius:-20,
+                                    borderBottomRightRadius:-20,
                                 } :
                                 {
                                     display: "flex",
@@ -63,7 +69,9 @@ function TabNavigator({ state, descriptors, navigation, position }: TopBarProps)
                                     flex: 1
                                 }}
                         >
+                            <View>
                             <Text key={"Tab-Navigation-" + index} style={styles.tabLabel}>{label}</Text>
+                            </View>
                         </TouchableOpacity>
                     );
                 })}

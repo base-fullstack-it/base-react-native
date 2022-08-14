@@ -21,9 +21,9 @@ export default () => {
   return (
     <Tab.Navigator initialRouteName={"PRODUCTS"}
                    tabBar={(props) => <TabNavigator {...props} />}
-                   style={{marginTop:insets.top}}
-        screenOptions={{
+                   // style={{marginTop:insets.top}}
 
+        screenOptions={{
         }}
     >
         <Tab.Screen component={ProductScreen} name="PRODUCTS"
