@@ -25,7 +25,7 @@ export default ():(values: SignupFormValuesInterface) => Promise<void> => {
     useEffect(()=>{
         if(isRegisterSuccess){
             Toast.show({
-                type: 'primaryColorToast',
+                type: 'primaryGreenColorToast',
                 text1: 'Welcome To Grassp Health!',
                 // text2: 'Look at our menu to see products available near you.',
                 onPress: () => Toast.hide(),

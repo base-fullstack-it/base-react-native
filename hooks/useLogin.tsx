@@ -45,7 +45,7 @@ export default ():(values: LoginFormValuesInterface) => Promise<void> => {
     useEffect(()=>{
         if(isLoginSuccess){
             Toast.show({
-                type: 'primaryColorToast',
+                type: 'primaryGreenColorToast',
                 text1: 'Welcome back!',
                 onPress: () => Toast.hide(),
                 visibilityTime:1400
