@@ -1,7 +1,5 @@
 import {View, Text, SafeAreaView, StatusBar} from "react-native";
-import FABMainMenuButtons from "../components/FABMainMenuButtons";
 import {useTheme} from "@rneui/themed";
-import FocusedStatusBar from "../components/FocusedStatusBar";
 
 export default () => {
     const theme = useTheme();

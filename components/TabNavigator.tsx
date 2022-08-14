@@ -58,8 +58,8 @@ function TabNavigator({ state, descriptors, navigation, position }: TopBarProps)
                                     display: "flex",
                                     flex: 1,
                                     backgroundColor: "#0158BE",
-                                    borderTopRightRadius:25,
-                                    borderTopLeftRadius:25,
+                                    borderTopRightRadius:22,
+                                    borderTopLeftRadius:22,
                                     borderBottomLeftRadius:-20,
                                     borderBottomRightRadius:-20,
                                 } :
@@ -69,9 +69,7 @@ function TabNavigator({ state, descriptors, navigation, position }: TopBarProps)
                                     flex: 1
                                 }}
                         >
-                            <View>
                             <Text key={"Tab-Navigation-" + index} style={styles.tabLabel}>{label}</Text>
-                            </View>
                         </TouchableOpacity>
                     );
                 })}
