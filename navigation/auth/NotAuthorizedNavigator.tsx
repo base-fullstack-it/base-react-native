@@ -3,6 +3,7 @@ import LoginScreen from "../../screen/LoginScreen";
 import SignupScreen from "../../screen/SignupScreen";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import useGetAppAccessToken from "../../hooks/useGetAppAccessToken";
+import {useTheme} from "@rneui/themed";
 
 export type NotAuthorizedParamList = {
   Login: undefined;
@@ -13,11 +14,17 @@ const Stack = createNativeStackNavigator<NotAuthorizedParamList>();
 
 export default () => {
      useGetAppAccessToken();
-  return (
-    <Stack.Navigator
-        initialRouteName='Login'
-        // screenOptions={{
-        // }}
+     const theme = useTheme();
+     return (
+         <Stack.Navigator
+            initialRouteName='Login'
+            screenOptions={{
+                headerTintColor:"white",
+                headerStyle:{
+                backgroundColor:theme.theme.colors.primary,
+            },
+        }}
+
     >
         <Stack.Screen
             name='Login'
