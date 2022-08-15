@@ -8,6 +8,7 @@ import Toast from 'react-native-toast-message';
 import toastConfig from "./config/toastConfig";
 import {ThemeProvider} from "@rneui/themed";
 import {theme} from "./theme/rneuiTheme";
+import SplashScreen from "./screen/SplashScreen";
 
 
 export default function App() {
@@ -16,7 +17,8 @@ export default function App() {
             <Provider store={store}>
                 <ThemeProvider theme={theme}>
                     <NavigationContainer>
-                        <AuthorizationDirector/>
+                        {/*<AuthorizationDirector/>*/}
+                        <SplashScreen/>
                     </NavigationContainer>
                 </ThemeProvider>
             </Provider>
