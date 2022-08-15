@@ -27,10 +27,12 @@ export default ():(values: LoginFormValuesInterface) => Promise<void> => {
         const data = await loginUser({...values}).unwrap();
         console.log(data,'did this work')
         const access_token = data.access_token;
-        const token_type = ACCESS_TOKEN_TYPES.user;
-        await dispatchUserAuth({access_token,token_type});
-        await AsyncStorage.setItem("token",access_token)
-        await AsyncStorage.setItem("token_type",token_type)
+        if(access_token) {
+            const token_type = ACCESS_TOKEN_TYPES.user;
+            await dispatchUserAuth({access_token, token_type});
+            await AsyncStorage.setItem("token", access_token);
+            await AsyncStorage.setItem("token_type", token_type);
+        }
         // await console.log(await AsyncStorage.getItem("token"),'tokenfrom async storage')
     };
     useEffect(()=>{
@@ -45,14 +47,16 @@ export default ():(values: LoginFormValuesInterface) => Promise<void> => {
         }
     },[isLoginError])
     useEffect(()=>{
+
         if(isLoginSuccess){
-            Toast.show({
-                type: 'primaryGreenColorToast',
-                text1: 'Welcome back!',
-                onPress: () => Toast.hide(),
-                visibilityTime:1400
-                // autoHide:false
-            });
+
+            // Toast.show({
+            //     type: 'primaryGreenColorToast',
+            //     text1: 'Welcome back!',
+            //     onPress: () => Toast.hide(),
+            //     visibilityTime:1400
+            //     // autoHide:false
+            // });
         }
     },[isLoginSuccess])
     return handleLogin;

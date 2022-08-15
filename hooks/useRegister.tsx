@@ -21,15 +21,16 @@ export default ():(values: SignupFormValuesInterface) => Promise<void> => {
     const handleLogin =  useLogin();
 
     const handleRegister = async (values:SignupFormValuesInterface) => {
-        const dataSignedUp = await registerUser(values).unwrap();
-        setEmail(values.email);
-        setPassword(values.password);
+        await registerUser(values).unwrap();
+        // setEmail(values.email);
+        // setPassword(values.password);
+        // await handleLogin({email: email,password:password});
+        await handleLogin({email: values.email,password:values.password});
 
     };
     useEffect(()=>{
-        (async () => {
+        // (async () => {
         if(isRegisterSuccess){
-            await handleLogin({email: email,password:password});
 
             Toast.show({
                 type: 'primaryGreenColorToast',
@@ -40,7 +41,7 @@ export default ():(values: SignupFormValuesInterface) => Promise<void> => {
                 // autoHide:false
             });
         }
-        })()
+        // })()
     },[isRegisterSuccess])
     useEffect(()=>{
         if(isRegisterError){

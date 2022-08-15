@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text, Image, StyleSheet, ActivityIndicator} from "react-native";
+import {View, Text, Image, StyleSheet, ActivityIndicator, StatusBar} from "react-native";
 import LottieView from 'lottie-react-native';
 import {useTheme} from "@rneui/themed";
 
@@ -7,13 +7,8 @@ import {useTheme} from "@rneui/themed";
 export default () => {
     const theme = useTheme();
     return <View style={{flex:1, justifyContent:"center"}}>
-        {/*<Image*/}
-        {/*source={require('../assets/grassp_health.png')}*/}
-        {/*style={{*/}
-        {/*    height: 400,*/}
-        {/*    width: 400,*/}
-        {/*}}/>*/}
-        {/*<LottieView source={"MyAnimation"} />*/}
+        <StatusBar barStyle={"dark-content"}/>
+
         <View style={styles.animationContainer}>
             <LottieView
                 autoPlay
