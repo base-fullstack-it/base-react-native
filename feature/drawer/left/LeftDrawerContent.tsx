@@ -16,7 +16,7 @@ export default (props:DrawerContentComponentProps) => {
     const theme = useTheme();
 
     return <>
-        <SafeAreaView style={{  backgroundColor:theme.theme.colors.primary, }} />
+        <SafeAreaView style={{flex:0,  backgroundColor:theme.theme.colors.primary, }} />
         <DrawerContentScrollView
             style={{marginTop:-inset.top}}
             {...props}
