@@ -1,6 +1,6 @@
 import {apiSlice} from "../app/api/apiSlice";
 
-export const userApiSlice = apiSlice.injectEndpoints({
+export const menuApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getMenuByZipCode: builder.query<any, any>({
             query: ({zipCode, dsprId, isFullMenuShown}) => ({
@@ -12,4 +12,4 @@ export const userApiSlice = apiSlice.injectEndpoints({
     })
 })
 
-export const { useLazyGetMenuByZipCodeQuery} = userApiSlice;
+export const { useLazyGetMenuByZipCodeQuery} = menuApiSlice;
