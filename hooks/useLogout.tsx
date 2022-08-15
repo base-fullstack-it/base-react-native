@@ -8,14 +8,9 @@ import {useState} from "react";
 
 type LogoutFunction = () => Promise<void>;
 
-export default ():{ handleLogout: () => Promise<void>; loading: boolean } => {
-    const handleNavigate = useNavigateToMenuTabNavigation();
+export default ():{ handleLogout: () => Promise<void> } => {
     const dispatch = useAppDispatch();
-    const [loading, setIsLoading] = useState(false);
     const handleLogout = async () => {
-        // navigation.navigate("Login");
-        setIsLoading(true);
-        // handleNavigate();
         await AsyncStorage.clear();
         dispatch(logout());
         Toast.show({
@@ -23,9 +18,7 @@ export default ():{ handleLogout: () => Promise<void>; loading: boolean } => {
             text1: 'Goodbye!',
             onPress: () => Toast.hide(),
             visibilityTime:1400
-            // autoHide:false
         });
-        setIsLoading(false);
     }
-    return {handleLogout,loading};
+    return {handleLogout};
 }

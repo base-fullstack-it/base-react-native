@@ -6,10 +6,9 @@ import SplashView from "../../../components/SplashView";
 
 export default () => {
 
-    const {handleLogout,loading} = useLogout();
+    const {handleLogout} = useLogout();
 
     return (
-        !loading ?
         <View>
         <Button
             title={"Log Out"}
@@ -22,7 +21,6 @@ export default () => {
             onPress={handleLogout}
         />
         </View>
-            :<SplashView/>
     )
 
 }
