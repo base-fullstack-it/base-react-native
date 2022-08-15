@@ -22,6 +22,8 @@ const TextFieldWrapper = ({ name, ...otherProps }) => {
   }
 
   return <Input
+spellCheck={false}
+autoCorrect={false}
       {...configTextField}
       // errorStyle={{ color: 'red' }}
   />
