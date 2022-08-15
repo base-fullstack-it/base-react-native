@@ -9,18 +9,19 @@ const LoginScreen = () => {
 
   const {handleLogin,isLoading,isLoginSuccess} = useLogin();
   return (
-      !isLoading && !isLoginSuccess ?
+      // !isLoading && !isLoginSuccess ?
       <Card>
     {/*<Card.Title></Card.Title>*/}
       <StatusBar barStyle="light-content"/>
       <GrasspFormLogo/>
     <LoginFormik
+        isLoading={isLoading}
         loginUser={handleLogin}
     />
     <Card.Divider />
     <NavigateToSignupComponent />
   </Card>
-          :<SplashView/>
+          // :<SplashView/>
   )
 };
 export default LoginScreen;

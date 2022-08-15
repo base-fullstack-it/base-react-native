@@ -17,13 +17,14 @@ const initialFormState = {
 }
 interface LoginFormInterface{
     loginUser(values:LoginFormValuesInterface): Promise<void>;
+    isLoading:boolean;
 }
 
 const validationSchema = object({
     email: string().email("Invalid email").required("Email required"),
     password: string().required("Password required"),
 })
-export default ({loginUser}:LoginFormInterface) => {
+export default ({loginUser,isLoading}:LoginFormInterface) => {
     const theme = useTheme();
 
     const [open, setOpen] = useState(false)
@@ -64,7 +65,7 @@ export default ({loginUser}:LoginFormInterface) => {
                         secureTextEntry={true}
                     />
                     {/*<Button onPress={() => handleSubmit()} title="Submit" />*/}
-                    <SubmitFormButton raised>Submit</SubmitFormButton>
+                    <SubmitFormButton loading={isLoading} raised>Submit</SubmitFormButton>
                 </View>
             )}
         </Formik>
