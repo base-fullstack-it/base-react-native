@@ -12,7 +12,6 @@ export type BottomTabNavigatorParamList = {
 export default () => {
     const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
     const {data} = useLoggedInUserQuery();
-    console.log(data,"d4ata")
 
     return (
         <Tab.Navigator

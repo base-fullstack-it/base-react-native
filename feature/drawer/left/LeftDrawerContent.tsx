@@ -15,18 +15,16 @@ export default (props:DrawerContentComponentProps) => {
     const navigate = useNavigateToProfile();
     const theme = useTheme();
 
-    // return <View style={{flex:1}}>
     return <>
-        <SafeAreaView style={{ flex: 0, backgroundColor:theme.theme.colors.primary }} />
-        <SafeAreaView style={{flex:1}}>
+        <SafeAreaView style={{  backgroundColor:theme.theme.colors.primary, }} />
         <DrawerContentScrollView
+            style={{marginTop:-inset.top}}
             {...props}
         >
             {/*<DrawerItemList {...props} />*/}
             <DrawerItem label={"Profile"} onPress={navigate} />
 
         </DrawerContentScrollView>
-    </SafeAreaView>
     </>
 
 
