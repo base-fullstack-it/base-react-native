@@ -4,6 +4,7 @@ import {SignupFormValuesInterface} from "../feature/auth/page/SignupFormik";
 import useLogin from "./useLogin";
 import {useEffect, useState} from "react";
 import Toast from "react-native-toast-message";
+import useNavigateToMenuTabNavigation from "./navigation/useNavigateToMenuTabNavigation";
 
 export default ():{ isLoading: any; isRegisterSuccess: any; registerData: any; handleRegister: (values: SignupFormValuesInterface) => Promise<void> } => {
 
@@ -17,16 +18,12 @@ export default ():{ isLoading: any; isRegisterSuccess: any; registerData: any; h
             error: registerError,
         },
     ] = useRegisterUserMutation();
+
     const{ handleLogin} =  useLogin();
 
     const handleRegister = async (values:SignupFormValuesInterface) => {
-        try {
-            await registerUser(values).unwrap();
-            await handleLogin({email: values.email, password: values.password});
-        }catch (e){
-        }
-
-
+        await registerUser(values).unwrap();
+        await handleLogin({email: values.email, password: values.password});
     };
     useEffect(()=>{
         // (async () => {

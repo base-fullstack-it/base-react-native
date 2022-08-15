@@ -9,13 +9,14 @@ export default () => {
 
     const {handleRegister,isLoading,isRegisterSuccess,registerData} = useRegister();
 
-    return (!isLoading && !isRegisterSuccess && !registerData ?
+    return (
+        isLoading?
+            <SplashView/>
+            :
             <Card>
                 <SignupFormik
                     handleRegister={handleRegister}
                 />
             </Card>
-            :
-            <SplashView/>
     )
 };
