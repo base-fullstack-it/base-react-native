@@ -1,13 +1,8 @@
-import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from "../../screen/LoginScreen";
-import DrawerNavigator from "../DrawerNavigator";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import MainScreen from "../../screen/MainScreen";
 import RightDrawerScreen from "../../feature/drawer/right/RightDrawerScreen";
 import ProfileScreen from "../../screen/ProfileScreen";
 import {Button, Icon, useTheme} from "@rneui/themed";
 import CheckoutScreen from "../../screen/CheckoutScreen";
-import MenuTabNavigation from "../MenuTabNavigation";
 
 export type AuthorizedParamList = {
   Main: undefined;
@@ -25,16 +20,6 @@ export default () => {
     <Stack.Navigator
         initialRouteName='Main'
     >
-        {/*/!*TODO: this was youtr bottom tab bar and profile thing*!/*/}
-        {/*<Stack.Screen*/}
-        {/*    name='Main'*/}
-        {/*    component={DrawerNavigator}*/}
-        {/*    options={{*/}
-        {/*        headerShown:false,*/}
-        {/*        // headerTitle: (props) => <LogoTitle />,*/}
-        {/*    }}*/}
-        {/*/>*/}
-        {/*you originally went drawer -> bottom tab navgitaro */}
         <Stack.Screen
             name='Main'
             component={RightDrawerScreen}

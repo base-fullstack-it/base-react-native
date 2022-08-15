@@ -7,17 +7,18 @@ import {useTheme} from "@rneui/themed";
 import {createMaterialBottomTabNavigator} from "@react-navigation/material-bottom-tabs";
 import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
+import useMenuFactory from "../hooks/menu/useMenuFactory";
+import MenuLocationTypes from "../model/enum/MenuLocationTypes";
 
 export type MenuParamsList = {
     PRODUCTS: undefined;
     CATEGORIES: undefined;
 };
 const Tab = createMaterialTopTabNavigator<MenuParamsList>();
-// const Tab = createMaterialBottomTabNavigator<MenuParamsList>();
 
 export default () => {
-    const theme = useTheme();
-    const insets = useSafeAreaInsets();
+    useMenuFactory(MenuLocationTypes.DEFAULT_MENU);
+
   return (
     <Tab.Navigator initialRouteName={"PRODUCTS"}
                    tabBar={(props) => <TabNavigator {...props} />}

@@ -6,8 +6,6 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default (props: DrawerContentComponentProps) => {
 
-
-
     // return
     return (
         <SafeAreaProvider>
