@@ -5,6 +5,7 @@ import useLogin from "./useLogin";
 import {useEffect, useState} from "react";
 import Toast from "react-native-toast-message";
 import useNavigateToMenuTabNavigation from "./navigation/useNavigateToMenuTabNavigation";
+import useNavigateToLogin from "./navigation/useNavigateToLogin";
 
 export default ():{ isLoading: any; isRegisterSuccess: any; registerData: any; handleRegister: (values: SignupFormValuesInterface) => Promise<void> } => {
 
@@ -20,19 +21,22 @@ export default ():{ isLoading: any; isRegisterSuccess: any; registerData: any; h
     ] = useRegisterUserMutation();
 
     const{ handleLogin} =  useLogin();
+    const handleNavigate = useNavigateToLogin();
 
     const handleRegister = async (values:SignupFormValuesInterface) => {
         await registerUser(values).unwrap();
-        await handleLogin({email: values.email, password: values.password});
+        //whoa the amount of bugs to get this to work is ridiculous
+        // await handleLogin({email: values.email, password: values.password});
+
     };
     useEffect(()=>{
         // (async () => {
         if(isRegisterSuccess){
-
+            handleNavigate();
             Toast.show({
                 type: 'primaryGreenColorToast',
                 text1: 'Welcome To Grassp Health!',
-                // text2: 'Look at our menu to see products available near you.',
+                text2: 'Now please log in',
                 onPress: () => Toast.hide(),
                 visibilityTime:1400
                 // autoHide:false

@@ -19,9 +19,9 @@ export default () => {
     // }, [isLoading]);
 
     return (
-        isLoading?
-            <SplashView/>
-            :
+        // isLoading || registerData?
+        //     <SplashView/>
+        //     :
             <Card>
                 <SignupFormik
                     handleRegister={handleRegister}
