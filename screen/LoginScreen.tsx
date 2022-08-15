@@ -4,10 +4,13 @@ import NavigateToSignupComponent from "../feature/auth/component/NavigateToSignu
 import { Text, Card, Button, Icon } from '@rneui/themed';
 import {View, Image, StatusBar} from "react-native";
 import GrasspFormLogo from "../components/GrasspFormLogo";
+import SplashView from "../components/SplashView";
 const LoginScreen = () => {
 
-  const handleLogin = useLogin();
-  return <Card>
+  const {handleLogin,isLoading,isLoginSuccess} = useLogin();
+  return (
+      !isLoading && !isLoginSuccess ?
+      <Card>
     {/*<Card.Title></Card.Title>*/}
       <StatusBar barStyle="light-content"/>
       <GrasspFormLogo/>
@@ -17,5 +20,7 @@ const LoginScreen = () => {
     <Card.Divider />
     <NavigateToSignupComponent />
   </Card>
+          :<SplashView/>
+  )
 };
 export default LoginScreen;

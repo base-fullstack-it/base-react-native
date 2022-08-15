@@ -2,15 +2,20 @@ import SignupFormik from "../feature/auth/page/SignupFormik";
 import useRegister from "../hooks/useRegister";
 import {Card} from "@rneui/themed";
 import GrasspFormLogo from "../components/GrasspFormLogo";
+import SplashScreen from "./SplashScreen";
+import SplashView from "../components/SplashView";
 
 export default () => {
 
-    const handleRegister = useRegister();
+    const {handleRegister,isLoading,isRegisterSuccess} = useRegister();
 
-    return <Card>
-        {/*<GrasspFormLogo/>*/}
-        <SignupFormik
-        handleRegister={handleRegister}
-    />
-    </Card>
+    return (!isLoading && !isRegisterSuccess ?
+            <Card>
+                <SignupFormik
+                    handleRegister={handleRegister}
+                />
+            </Card>
+            :
+            <SplashView/>
+    )
 };

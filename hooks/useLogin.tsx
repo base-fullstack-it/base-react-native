@@ -7,13 +7,14 @@ import {useEffect} from "react";
 import Toast from "react-native-toast-message";
 import {useNavigation} from "@react-navigation/native";
 
-export default ():(values: LoginFormValuesInterface) => Promise<void> => {
+export default ():{ isLoading: any; isLoginSuccess: any; handleLogin: (values: LoginFormValuesInterface) => Promise<void> } => {
     const dispatchUserAuth = useDispatchUserAuth();
     const navigation = useNavigation();
     //todo need some sort of useActivityLoader that uses with context
     const [
         loginUser,
         {
+            isLoading,
             data: loginData,
             isSuccess: isLoginSuccess,
             isError: isLoginError,
@@ -59,5 +60,5 @@ export default ():(values: LoginFormValuesInterface) => Promise<void> => {
             // });
         }
     },[isLoginSuccess])
-    return handleLogin;
+    return {handleLogin,isLoading,isLoginSuccess};
 }

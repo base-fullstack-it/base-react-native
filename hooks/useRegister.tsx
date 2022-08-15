@@ -5,13 +5,14 @@ import useLogin from "./useLogin";
 import {useEffect, useState} from "react";
 import Toast from "react-native-toast-message";
 
-export default ():(values: SignupFormValuesInterface) => Promise<void> => {
+export default ():{ isLoading: any; isRegisterSuccess: any; handleRegister: (values: SignupFormValuesInterface) => Promise<void> } => {
 
     const [email, setEmail] = useState<any>(undefined);
     const [password, setPassword] = useState<any>(undefined);
     const [
         registerUser,
         {
+            isLoading,
             data: registerData,
             isSuccess: isRegisterSuccess,
             isError: isRegisterError,
@@ -59,5 +60,5 @@ export default ():(values: SignupFormValuesInterface) => Promise<void> => {
             });
         }
     },[isRegisterError])
-    return handleRegister;
+    return {handleRegister,isLoading,isRegisterSuccess};
 }

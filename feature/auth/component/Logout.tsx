@@ -2,12 +2,14 @@ import useLogout from "../../../hooks/useLogout";
 import {Button} from "@rneui/themed";
 import {globalStyles} from "../../../styles/globalStyles";
 import {View} from "react-native";
+import SplashView from "../../../components/SplashView";
 
 export default () => {
 
-    const handleLogout = useLogout();
+    const {handleLogout,loading} = useLogout();
 
     return (
+        !loading ?
         <View>
         <Button
             title={"Log Out"}
@@ -20,6 +22,7 @@ export default () => {
             onPress={handleLogout}
         />
         </View>
+            :<SplashView/>
     )
 
 }

@@ -4,15 +4,18 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Toast from "react-native-toast-message";
 import useNavigateToLogin from "./navigation/useNavigateToLogin";
 import useNavigateToMenuTabNavigation from "./navigation/useNavigateToMenuTabNavigation";
+import {useState} from "react";
 
 type LogoutFunction = () => Promise<void>;
 
-export default ():LogoutFunction => {
+export default ():{ handleLogout: () => Promise<void>; loading: boolean } => {
     const handleNavigate = useNavigateToMenuTabNavigation();
     const dispatch = useAppDispatch();
+    const [loading, setIsLoading] = useState(false);
     const handleLogout = async () => {
         // navigation.navigate("Login");
-        handleNavigate();
+        setIsLoading(true);
+        // handleNavigate();
         await AsyncStorage.clear();
         dispatch(logout());
         Toast.show({
@@ -22,6 +25,7 @@ export default ():LogoutFunction => {
             visibilityTime:1400
             // autoHide:false
         });
+        setIsLoading(false);
     }
-    return handleLogout;
+    return {handleLogout,loading};
 }
