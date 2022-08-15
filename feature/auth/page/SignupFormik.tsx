@@ -25,6 +25,7 @@ const initialFormState = {
 }
 interface SignupFormInterface{
     handleRegister(values:SignupFormValuesInterface): Promise<void>;
+    isLoading:boolean;
 }
 
 const validationSchema = object({
@@ -43,7 +44,7 @@ const validationSchema = object({
     //     .required("The terms and conditions must be accepted.")
 })
 
-export default ({handleRegister}:SignupFormInterface) => {
+export default ({handleRegister,isLoading}:SignupFormInterface) => {
 
     const submitHandler = async (values:SignupFormValuesInterface, actions:any) => {
         actions.setSubmitting(false);
@@ -85,7 +86,7 @@ export default ({handleRegister}:SignupFormInterface) => {
                         name={"phoneNumber"}
                         placeholder={"Phone Number"}
                     />
-                    <SubmitFormButton raised>Submit</SubmitFormButton>
+                    <SubmitFormButton loading={isLoading} raised>Submit</SubmitFormButton>
                 </View>
             )}
         </Formik>

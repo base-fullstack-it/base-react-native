@@ -25,6 +25,7 @@ export default () => {
             <Card>
                 <SignupFormik
                     handleRegister={handleRegister}
+                    isLoading={isLoading}
                 />
             </Card>
     )
