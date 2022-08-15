@@ -48,8 +48,6 @@ export default ({handleRegister}:SignupFormInterface) => {
     const submitHandler = async (values:SignupFormValuesInterface, actions:any) => {
         actions.setSubmitting(false);
         await handleRegister(values);
-
-
     }
 
     return (

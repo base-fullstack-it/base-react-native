@@ -1,9 +1,11 @@
 import {useGetAppAccessTokenQuery} from "../services/authApiSlice";
 import useDispatchUserAuth from "./useDispatchUserAuth";
 import {useEffect} from "react";
+import {setUser} from "../feature/auth/slice/authSlice";
+import {useAppDispatch} from "../app/hooks";
 
 export default ():void => {
-    const dispatchUserAuth = useDispatchUserAuth();
+    const dispatch = useAppDispatch();
     const {data} = useGetAppAccessTokenQuery();
     //get the app access token,
     // we never store it in the AsyncStorage
@@ -12,10 +14,10 @@ export default ():void => {
         if(data?.access_token){
             const access_token = data?.access_token ? data.access_token : null;
             const token_type = data?.token_type ? data.token_type : null;
-            dispatchUserAuth({
-                access_token,
+            dispatch(setUser({
+                token:access_token,
                 token_type
-            })
+            }))
         }
     },[data]);
 

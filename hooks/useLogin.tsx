@@ -28,7 +28,7 @@ export default ():(values: LoginFormValuesInterface) => Promise<void> => {
         console.log(data,'did this work')
         const access_token = data.access_token;
         const token_type = ACCESS_TOKEN_TYPES.user;
-        dispatchUserAuth({access_token,token_type});
+        await dispatchUserAuth({access_token,token_type});
         await AsyncStorage.setItem("token",access_token)
         await AsyncStorage.setItem("token_type",token_type)
         // await console.log(await AsyncStorage.getItem("token"),'tokenfrom async storage')

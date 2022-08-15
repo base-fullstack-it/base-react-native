@@ -2,10 +2,13 @@ import {useLoginUserMutation, useRegisterUserMutation} from "../services/authApi
 import {SignupFormValuesInterface} from "../feature/auth/page/SignupFormik";
 
 import useLogin from "./useLogin";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import Toast from "react-native-toast-message";
 
 export default ():(values: SignupFormValuesInterface) => Promise<void> => {
+
+    const [email, setEmail] = useState<any>(undefined);
+    const [password, setPassword] = useState<any>(undefined);
     const [
         registerUser,
         {
@@ -19,11 +22,15 @@ export default ():(values: SignupFormValuesInterface) => Promise<void> => {
 
     const handleRegister = async (values:SignupFormValuesInterface) => {
         const dataSignedUp = await registerUser(values).unwrap();
-        await handleLogin({email: values.email,password:values.password});
+        setEmail(values.email);
+        setPassword(values.password);
 
     };
     useEffect(()=>{
+        (async () => {
         if(isRegisterSuccess){
+            await handleLogin({email: email,password:password});
+
             Toast.show({
                 type: 'primaryGreenColorToast',
                 text1: 'Welcome To Grassp Health!',
@@ -33,18 +40,23 @@ export default ():(values: SignupFormValuesInterface) => Promise<void> => {
                 // autoHide:false
             });
         }
+        })()
     },[isRegisterSuccess])
     useEffect(()=>{
-        if(registerError){
+        if(isRegisterError){
+            console.log((registerError as any).data,'registerErrorregisterError')
+            // const message = (registerError as any).data.message
+
             Toast.show({
                 type: 'error',
-                text1: 'Something went wrong, please try again later.',
-                text2: 'If the issue persist contact customer support.',
+                text1:(registerError as any).data.message,
+                // text1: 'Something went wrong, please try again later.',
+                // text2: 'If the issue persist contact customer support.',
                 onPress: () => Toast.hide(),
                 visibilityTime:2400
                 // autoHide:false
             });
         }
-    },[registerError])
+    },[isRegisterError])
     return handleRegister;
 }
