@@ -10,7 +10,7 @@ export default () => {
 
     useEffect(() => {
         (async () => {
-            await SplashScreen.preventAutoHideAsync();//this also worked by awaiting inside of async
+            // await SplashScreen.preventAutoHideAsync();//this also worked by awaiting inside of async
             const access_token = await AsyncStorage.getItem("token")
             const token_type = await AsyncStorage.getItem("token_type")
             await handleDispatchUserAuth({access_token,token_type});

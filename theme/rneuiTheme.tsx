@@ -17,7 +17,8 @@ export const theme = createTheme({
         }
     },
     lightColors:{
-        primary:"#2F84F1"
+        primary:"#2F84F1",
+        secondary:"#66B02D"
     }
     // spacing: {
     //   xs: 4,
