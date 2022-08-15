@@ -6,9 +6,9 @@ SplashScreen.preventAutoHideAsync();
 export default () =>{
     const isAppLoaded = useGetAccessTokenDataFromAsyncStorage();
     return (
-        // isAppLoaded
-        //     ? <AuthorizationDirector/>
-        //     :
+        isAppLoaded
+            ? <AuthorizationDirector/>
+            :
             <SplashView/>
     )
 }
