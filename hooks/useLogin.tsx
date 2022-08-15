@@ -5,9 +5,11 @@ import {useLoginUserMutation} from "../services/authApiSlice";
 import useDispatchUserAuth from "./useDispatchUserAuth";
 import {useEffect} from "react";
 import Toast from "react-native-toast-message";
+import {useNavigation} from "@react-navigation/native";
 
 export default ():(values: LoginFormValuesInterface) => Promise<void> => {
     const dispatchUserAuth = useDispatchUserAuth();
+    const navigation = useNavigation();
     //todo need some sort of useActivityLoader that uses with context
     const [
         loginUser,
