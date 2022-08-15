@@ -9,15 +9,16 @@ import toastConfig from "./config/toastConfig";
 import {ThemeProvider} from "@rneui/themed";
 import {theme} from "./theme/rneuiTheme";
 import SplashScreen from "./screen/SplashScreen";
+import useCustomFonts from "./hooks/useCustomFonts";
 
 
 export default function App() {
+    useCustomFonts();
 
     return <>
             <Provider store={store}>
                 <ThemeProvider theme={theme}>
                     <NavigationContainer>
-                        {/*<AuthorizationDirector/>*/}
                         <SplashScreen/>
                     </NavigationContainer>
                 </ThemeProvider>
@@ -26,13 +27,3 @@ export default function App() {
         </>
 
 }
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

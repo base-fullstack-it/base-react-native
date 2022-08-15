@@ -54,7 +54,7 @@ export default ():{ isLoading: any; isRegisterSuccess: any; registerData: any; h
                 // text1: 'Something went wrong, please try again later.',
                 // text2: 'If the issue persist contact customer support.',
                 onPress: () => Toast.hide(),
-                visibilityTime:2400
+                visibilityTime:3800
                 // autoHide:false
             });
         }
