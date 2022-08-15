@@ -5,10 +5,8 @@ import useLogin from "./useLogin";
 import {useEffect, useState} from "react";
 import Toast from "react-native-toast-message";
 
-export default ():{ isLoading: any; isRegisterSuccess: any; handleRegister: (values: SignupFormValuesInterface) => Promise<void> } => {
+export default ():{ isLoading: any; isRegisterSuccess: any; registerData: any; handleRegister: (values: SignupFormValuesInterface) => Promise<void> } => {
 
-    const [email, setEmail] = useState<any>(undefined);
-    const [password, setPassword] = useState<any>(undefined);
     const [
         registerUser,
         {
@@ -19,14 +17,15 @@ export default ():{ isLoading: any; isRegisterSuccess: any; handleRegister: (val
             error: registerError,
         },
     ] = useRegisterUserMutation();
-    const handleLogin =  useLogin();
+    const{ handleLogin} =  useLogin();
 
     const handleRegister = async (values:SignupFormValuesInterface) => {
-        await registerUser(values).unwrap();
-        // setEmail(values.email);
-        // setPassword(values.password);
-        // await handleLogin({email: email,password:password});
-        await handleLogin({email: values.email,password:values.password});
+        try {
+            await registerUser(values).unwrap();
+            await handleLogin({email: values.email, password: values.password});
+        }catch (e){
+        }
+
 
     };
     useEffect(()=>{
@@ -46,7 +45,6 @@ export default ():{ isLoading: any; isRegisterSuccess: any; handleRegister: (val
     },[isRegisterSuccess])
     useEffect(()=>{
         if(isRegisterError){
-            console.log((registerError as any).data,'registerErrorregisterError')
             // const message = (registerError as any).data.message
 
             Toast.show({
@@ -60,5 +58,5 @@ export default ():{ isLoading: any; isRegisterSuccess: any; handleRegister: (val
             });
         }
     },[isRegisterError])
-    return {handleRegister,isLoading,isRegisterSuccess};
+    return {handleRegister,isLoading,isRegisterSuccess,registerData};
 }

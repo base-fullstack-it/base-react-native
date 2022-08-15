@@ -7,9 +7,9 @@ import SplashView from "../components/SplashView";
 
 export default () => {
 
-    const {handleRegister,isLoading,isRegisterSuccess} = useRegister();
+    const {handleRegister,isLoading,isRegisterSuccess,registerData} = useRegister();
 
-    return (!isLoading && !isRegisterSuccess ?
+    return (!isLoading && !isRegisterSuccess && !registerData ?
             <Card>
                 <SignupFormik
                     handleRegister={handleRegister}
