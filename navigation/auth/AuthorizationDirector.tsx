@@ -12,7 +12,8 @@ export default () => {
         ||
         auth.token && auth.token_type !== ACCESS_TOKEN_TYPES.user
             ? <NotAuthorizedNavigator/>
-            : <AuthorizedNavigator/>
+            :
+            <AuthorizedNavigator/>
     )
 
 }
