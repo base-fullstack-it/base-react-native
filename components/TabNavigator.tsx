@@ -1,4 +1,4 @@
-import {StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import React from "react";
 import {useTheme} from "@rneui/themed";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
@@ -13,7 +13,9 @@ function TabNavigator({ state, descriptors, navigation, position }: TopBarProps)
     const theme = useTheme();
     const insets = useSafeAreaInsets();
     return (
-        <View style={{ display: "flex", flexDirection:"column", paddingTop:insets.top,backgroundColor:theme.theme.colors.primary}}>
+        <>
+            <SafeAreaView style={{ flex: 0, backgroundColor:theme.theme.colors.primary }} />
+        <View style={{ display: "flex", flexDirection:"column", backgroundColor:theme.theme.colors.primary}}>
             <View style={{ display: "flex", flexDirection: 'row',}}>
                 <StatusBar barStyle={"light-content"}/>
                 {state.routes.map((route: any, index:number) => {
@@ -75,6 +77,7 @@ function TabNavigator({ state, descriptors, navigation, position }: TopBarProps)
                 })}
             </View>
         </View>
+        </>
     );
 }
 const styles = StyleSheet.create({

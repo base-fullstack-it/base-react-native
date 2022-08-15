@@ -1,4 +1,4 @@
-import {View} from "react-native";
+import {SafeAreaView, StatusBar, StyleSheet, View} from "react-native";
 import {
     DrawerContentComponentProps,
     DrawerContentScrollView,
@@ -6,12 +6,19 @@ import {
     DrawerItemList
 } from "@react-navigation/drawer";
 import useNavigateToProfile from "../../../hooks/navigation/useNavigateToProfile";
+import {SafeAreaProvider, useSafeAreaInsets} from "react-native-safe-area-context";
+import FocusAwareStatusBar from "../../../components/FocusAwareStatusBar";
+import {Header, useTheme} from "@rneui/themed";
 
 export default (props:DrawerContentComponentProps) => {
-// export default () => {
+    const inset = useSafeAreaInsets();
     const navigate = useNavigateToProfile();
+    const theme = useTheme();
 
-    return <View style={{flex:1}}>
+    // return <View style={{flex:1}}>
+    return <>
+        <SafeAreaView style={{ flex: 0, backgroundColor:theme.theme.colors.primary }} />
+        <SafeAreaView style={{flex:1}}>
         <DrawerContentScrollView
             {...props}
         >
@@ -19,6 +26,8 @@ export default (props:DrawerContentComponentProps) => {
             <DrawerItem label={"Profile"} onPress={navigate} />
 
         </DrawerContentScrollView>
-    </View>
+    </SafeAreaView>
+    </>
+
 
 }
