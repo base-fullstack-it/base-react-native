@@ -60,8 +60,8 @@ function TabNavigator({ state, descriptors, navigation, position }: TopBarProps)
                                     display: "flex",
                                     flex: 1,
                                     backgroundColor: "#0158BE",
-                                    borderTopRightRadius:60,
-                                    borderTopLeftRadius:60,
+                                    borderTopRightRadius:27,
+                                    borderTopLeftRadius:27,
                                 } :
                                 {
                                     display: "flex",
