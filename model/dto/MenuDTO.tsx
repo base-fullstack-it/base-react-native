@@ -11,9 +11,3 @@ export interface MenuDTO {
     readonly address: Readonly<AddressDTO>,
     readonly brands: ReadonlyArray<BrandDTO[]>
 }
-//    driver: dsprDriverSchema,
-//     dspr: dsprSchema,
-//     productCategories: arrayOf(productCategorySchema),
-//     products: arrayOf(dspProductSchema),
-//     address: addressSchema,
-//     brands: arrayOf(dspBrandSchema)
