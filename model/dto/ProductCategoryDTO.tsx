@@ -4,12 +4,12 @@ import {ProductDTO} from "./ProductDTO";
 
 export interface ProductCategoryDTO{
     readonly id: number;
-    readonly deliveryServiceProvider: DeliveryServiceProviderDTO;
+    readonly deliveryServiceProvider: Readonly<DeliveryServiceProviderDTO>;
     readonly name: string;
     readonly order: number;
     readonly imageLocation: string;
-    readonly dsprProductCategoryPromotion:DSPRProductCategoryPromotion;
-    readonly products: ProductDTO[];
+    readonly dsprProductCategoryPromotion:Readonly<DSPRProductCategoryPromotion>;
+    readonly products: ReadonlyArray<ProductDTO[]>;
 }
 //    private int id;
 //     private DeliveryServiceProvider deliveryServiceProvider;
