@@ -14,16 +14,7 @@ export const menuSlice = createSlice({
     name: "menu",
     initialState,
     reducers: {
-        setMenu: (
-            state,
-            action: PayloadAction<MenuState>
-        ) =>
-        {
-            // console.log(action.payload,'PAYLOADER')
-            // const { driver, dspr, productCategories, products,address, } = action.payload;
-            // return action.payload;
-            return action.payload;
-        },
+        setMenu: (state, action: PayloadAction<MenuState>) => action.payload
     },
 });
 export const selectMenu = (state: RootState) => state.menu;

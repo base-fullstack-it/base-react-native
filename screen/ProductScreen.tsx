@@ -8,7 +8,7 @@ export default () => {
     const menu = useSelector(selectMenu);
     // return <SafeAreaView style={{flex:1}}>
     return <SafeAreaView style={{flex:1}}>
-        {console.log(menu,'menu state from')}
+        {/*{console.log(menu,'menu s22tate from')}*/}
         {/*<FocusedStatusBar barStyle="light-content" backgroundColor={theme.theme.colors.primary}/>*/}
         {/*<StatusBar barStyle="light-content" backgroundColor={theme.theme.colors.primary}/>*/}
         {/*<StatusBar barStyle="light-content" backgroundColor={color:theme.theme.colors.primary}/>*/}
