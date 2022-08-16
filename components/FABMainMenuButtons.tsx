@@ -1,5 +1,6 @@
-import {FAB, Icon} from "@rneui/themed";
+import {Badge, FAB, Icon} from "@rneui/themed";
 import {useNavigation} from "@react-navigation/native";
+import {View} from "react-native";
 
 export default () => {
     const navigation = useNavigation<any>();
@@ -16,11 +17,18 @@ export default () => {
         <FAB
             placement={"right"}
             onPress={() => navigation.getParent('RightDrawer').openDrawer()}
-            icon={<Icon
-                color={"white"}
-                type={"antdesign"}
-                name='shoppingcart' />
-            }
-        />
+        >
+            <Icon
+            color={"white"}
+            type={"antdesign"}
+            name='shoppingcart' />
+            <Badge
+                // badgeStyle={{color:"red"}}
+                containerStyle={{position:'absolute',left:28,bottom:30}}
+                status={"error"}
+                value={"15"}
+            />
+
+        </FAB>
     </>
 }
