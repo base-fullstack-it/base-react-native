@@ -2,10 +2,13 @@ import MenuLocationTypes from "../../model/enum/MenuLocationTypes";
 import {useEffect} from "react";
 import {useLoggedInUserQuery} from "../../services/userApiSlice";
 import {useLazyGetMenuQuery} from "../../services/menuApiSlice";
+import {setMenu} from "../../feature/menu/slice/menuSlice";
+import {useAppDispatch} from "../../app/hooks";
 
 export default (menuType:MenuLocationTypes) => {
     const {data} = useLoggedInUserQuery();
     const [triggerGetMenu, result] = useLazyGetMenuQuery();
+    const dispatch = useAppDispatch();
     //if is full menu then we need the dspr id
     useEffect(() => {
         if (!data) return;
@@ -13,6 +16,9 @@ export default (menuType:MenuLocationTypes) => {
         // if (!data || data && !data.defaultAddress) return;
         switch (menuType) {
             case MenuLocationTypes.CURRENT_LOCATION:
+                //why based on the CURRENT_LOCATION?
+                //can we pickup based on going to dispensary?
+                //or is it just a delivery service
                 // dispatch<any>(getMenuByLatLong(coords.latitude, coords.longitude, dsprId, isFullMenuShown))
                 //     .then(response => checkForClosedMessageAndRenderMenu(response, dsprId));
                 break;
@@ -34,8 +40,8 @@ export default (menuType:MenuLocationTypes) => {
 
     useEffect(()=>{
         if(!result.data) return;
-
-
+        // console.log(result.data,"DI22D I MAKE IT HERE")
+        dispatch(setMenu(result.data));
 
     },[result])
 

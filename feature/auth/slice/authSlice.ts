@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {RootState} from "../../../app/store";
+import {MenuDTO} from "../../../model/dto/MenuDTO";
 
 export const ACCESS_TOKEN_TYPES = {
   user: 'USER',
@@ -14,7 +15,7 @@ export interface AuthState {
 
 const initialState: AuthState = {
   token: null,
-  token_type:null
+  token_type:null,
 };
 
 export const authSlice = createSlice({
@@ -25,14 +26,6 @@ export const authSlice = createSlice({
       state,
       action: PayloadAction<AuthState>
     ) => {
-      // localStorage.setItem(
-      //   "user",
-      //   JSON.stringify({
-      //     name: action.payload.name,
-      //     token: action.payload.token,
-      //     token_type: action.payload.token_type
-      //   })
-      // );
       state.token = action.payload.token;
       state.token_type = action.payload.token_type;
     },

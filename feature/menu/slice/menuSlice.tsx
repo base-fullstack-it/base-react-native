@@ -1,42 +1,37 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "../../../app/store";
+import {MenuDTO} from "../../../model/dto/MenuDTO";
 
 export interface MenuState {
-    token: string | null;
-    token_type: string | null;
+    menu: MenuDTO | null;
 }
 
 const initialState: MenuState = {
-    token: null,
-    token_type:null
+    menu: null,
+    // menu: 3,
 };
-export const MenuSlice = createSlice({
+export const menuSlice = createSlice({
     name: "menu",
     initialState,
     reducers: {
-        setUser: (
+        setMenu: (
             state,
             action: PayloadAction<MenuState>
-        ) => {
-            // localStorage.setItem(
-            //   "user",
-            //   JSON.stringify({
-            //     name: action.payload.name,
-            //     token: action.payload.token,
-            //     token_type: action.payload.token_type
-            //   })
-            // );
-            state.token = action.payload.token;
-            state.token_type = action.payload.token_type;
-        },
-        logout: (state) => {
-            state.token = null;
-            state.token_type = null;
+        ) =>
+        {
+            // console.log(action.payload,'PAYLOADER')
+            // const { driver, dspr, productCategories, products,address, } = action.payload;
+            // return action.payload;
+            return action.payload;
         },
     },
 });
-export const selectAuth = (state: RootState) => state.menu;
+export const selectMenu = (state: RootState) => state.menu;
 
-// export const { setUser, logout } = MenuSlice.actions;
+export const { setMenu } = menuSlice.actions;
 
-export default MenuSlice.reducer;
+export default menuSlice.reducer;
+
+// console.log(driver, dspr, productCategories, products,address,"CALLED44")
+// Object.assign(state.menu, { driver, dspr, productCategories, products,address })
+// state.menu.dspr = dspr;
