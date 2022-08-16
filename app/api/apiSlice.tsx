@@ -23,8 +23,7 @@ const dynamicBaseQuery: BaseQueryFn<
     unknown,
     FetchBaseQueryError
     > = async (args, api, extraOptions) => {
-    console.log(args,'ARGS FROM DYNAMIC BASE QUERY')
-    // const {params} = args;
+    // console.log(args,'ARGS FROM DYNAMIC BASE QUERY')
 
 
     // console.log(api.getState(),'CALLED API GET STATE')
@@ -42,9 +41,8 @@ const dynamicBaseQuery: BaseQueryFn<
     const queryParamsMap:any = {};
     queryParamsMap.access_token = appState.auth.token;
     const queryParamsString = qs.stringify(queryParamsMap);
-    console.log(queryParamsString);
+
     const adjustedUrl = vers + urlEnd + "?" + queryParamsString;
-    console.log(adjustedUrl,'adjustedUrladjustedUrl')
     const adjustedArgs = typeof args === 'string' ? adjustedUrl : { ...args, url: adjustedUrl }
     return baseQuery(adjustedArgs, api, extraOptions)
 
