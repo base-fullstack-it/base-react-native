@@ -22,7 +22,7 @@ export default (menuType:MenuLocationTypes) => {
                 break;
             case MenuLocationTypes.DEFAULT_MENU:
                 triggerGetMenu({zip_code: defaultAddress!.zipCode});
-                console.log(result,'RESULTOFMENU')
+                // console.log(result.data,'RESULTOFMENU')
                 // could be not needed for user app
                 //     setShowPleaseEnableLocation(true);
                 break;
@@ -30,7 +30,7 @@ export default (menuType:MenuLocationTypes) => {
                 break;
         }
 
-    }, [data])
-
+    }, [data]);
+    return result;
 
 }

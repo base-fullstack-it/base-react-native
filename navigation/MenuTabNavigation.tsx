@@ -17,7 +17,8 @@ export type MenuParamsList = {
 const Tab = createMaterialTopTabNavigator<MenuParamsList>();
 
 export default () => {
-    useMenuFactory(MenuLocationTypes.DEFAULT_MENU);
+    const result = useMenuFactory(MenuLocationTypes.DEFAULT_MENU);
+    console.log(result,"RESULTATODDOODODODODO")
 
   return (
     <Tab.Navigator initialRouteName={"PRODUCTS"}

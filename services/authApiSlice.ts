@@ -4,9 +4,7 @@ import {apiSlice, vers} from "../app/api/apiSlice";
 import {AppAccessToken} from "../feature/auth/model/AppAccessToken";
 
 export const authApiSlice = apiSlice.injectEndpoints({
-  // reducerPath: "authApiSlice",
-  //shoulld in theory allow for content type in application json
-  // baseQuery,
+
   endpoints: (builder) => ({
     loginUser: builder.mutation({
       query:(body: { email: string; password: string }) => ({
