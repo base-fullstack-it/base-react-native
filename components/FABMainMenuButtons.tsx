@@ -23,8 +23,7 @@ export default () => {
             type={"antdesign"}
             name='shoppingcart' />
             <Badge
-                // badgeStyle={{color:"red"}}
-                containerStyle={{position:'absolute',left:28,bottom:30}}
+                containerStyle={{position:'absolute',left:28,bottom:31}}
                 status={"error"}
                 value={"15"}
             />
