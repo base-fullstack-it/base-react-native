@@ -31,6 +31,12 @@ export default (menuType:MenuLocationTypes) => {
         }
 
     }, [data]);
-    return result;
+
+    useEffect(()=>{
+        if(!result.data) return;
+
+
+
+    },[result])
 
 }

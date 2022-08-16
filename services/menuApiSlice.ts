@@ -13,9 +13,8 @@ interface MenuParameters {
 export const menuApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getMenu: builder.query<any, MenuParameters>({
-            query: (args:any) => ({
+            query: (args:MenuParameters) => ({
                 url: "menu",
-                // params:{ zip_code: zipCode, dspr_id: dsprId, is_full_menu: isFullMenuShown }
                 params:{...args }
             }),
             // providesTags: ["Transaction"],
