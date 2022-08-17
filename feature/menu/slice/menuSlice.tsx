@@ -10,10 +10,10 @@ export interface MenuState {
     // menu: MenuDTO | null;
     readonly driver: Readonly<DSPRDTO> | undefined,
     readonly dspr: Readonly<DSPRDTO> | undefined,
-    readonly productCategories:ReadonlyArray<ProductCategoryDTO[]> | undefined,
-    readonly products: ReadonlyArray<ProductDTO[]> | undefined,
+    readonly productCategories:ReadonlyArray<ProductCategoryDTO> | undefined,
+    readonly products: ReadonlyArray<ProductDTO> | undefined,
     readonly address: Readonly<AddressDTO> | undefined,
-    readonly brands: ReadonlyArray<BrandDTO[]>| undefined
+    readonly brands: ReadonlyArray<BrandDTO>| undefined
 }
 
 const initialState: MenuState = {
