@@ -4,7 +4,6 @@ import menuReducer from "../feature/menu/slice/menuSlice";
 import cartReducer from "../feature/cart/cartSlice";
 import { setupListeners } from "@reduxjs/toolkit/query/react";
 import {apiSlice} from "./api/apiSlice";
-import storage from "redux-persist/lib/storage";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { persistStore,
@@ -32,6 +31,7 @@ const persistedReducer = persistReducer(persistConfig, reducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
+  // reducer: reducer,
   middleware: (getDefaultMiddleware) =>
   getDefaultMiddleware({
     // serializableCheck:false
