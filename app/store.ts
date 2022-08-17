@@ -7,40 +7,41 @@ import {apiSlice} from "./api/apiSlice";
 import storage from "redux-persist/lib/storage";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import {persistReducer, persistStore} from "redux-persist";
+import { persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER} from "redux-persist";
 
 const persistConfig = {
   key: "root",
   version: 1,
   storage: AsyncStorage,
+  whitelist:['cart']
 };
 const reducer = combineReducers({
   cart: cartReducer,
+  auth: authReducer,
+  menu: menuReducer,
+  [apiSlice.reducerPath]: apiSlice.reducer,
 });
-
 const persistedReducer = persistReducer(persistConfig, reducer);
-// const persistedReducer = persistReducer(persistConfig, cartReducer);
-
-// const store = configureStore({
-//   reducer: persistedReducer,
-// });
 
 export const store = configureStore({
-  reducer: {
-    auth: authReducer,
-    menu: menuReducer,
-    persistedReducer,
-    [apiSlice.reducerPath]: apiSlice.reducer,
-  },
+  reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
   getDefaultMiddleware({
-    serializableCheck:false
+    // serializableCheck:false
+    serializableCheck:{
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    }
+
   }).concat(apiSlice.middleware),
   devTools: true,
 });
-// middleware: getDefaultMiddleware({
-//   serializableCheck:(
-//       ignoredActions: [someReduxPersistActionType)
 export const persistor = persistStore(store);
 
 
