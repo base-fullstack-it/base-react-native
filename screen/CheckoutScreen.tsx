@@ -4,8 +4,8 @@ import PlaceOrderButton from "../components/checkout/PlaceOrderButton";
 export default () => {
 
     return <SafeAreaView style={{
-        flex:1,
-        alignItems:"center"
+        flex: 1,
+        alignItems: "center"
     }}>
         <StatusBar barStyle="light-content"/>
         <Text>CheckOut screen</Text>

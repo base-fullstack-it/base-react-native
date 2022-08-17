@@ -2,7 +2,7 @@ import React from "react";
 import { useField } from "formik";
 import {Input} from "@rneui/themed";
 
-const TextFieldWrapper = ({ name, ...otherProps }) => {
+const TextFieldWrapper = ({name, ...otherProps}) => {
   const [field, meta] = useField(name);
   const configTextField = {
     // onChangeText:field.onChange,
@@ -22,8 +22,8 @@ const TextFieldWrapper = ({ name, ...otherProps }) => {
   }
 
   return <Input
-spellCheck={false}
-autoCorrect={false}
+      spellCheck={false}
+      autoCorrect={false}
       {...configTextField}
       // errorStyle={{ color: 'red' }}
   />
