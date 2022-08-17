@@ -1,9 +1,6 @@
-import {useSelector} from "react-redux";
-import {MenuState, selectMenu} from "../feature/menu/slice/menuSlice";
-import {RootState} from "../app/store";
-import {FlatList, View} from "react-native";
+import {FlatList} from "react-native";
+import {ProductCategoryDTO} from "../../model/dto/ProductCategoryDTO";
 import {ListItem} from "@rneui/themed";
-import {ProductCategoryDTO} from "../model/dto/ProductCategoryDTO";
 const renderItem = ({ item }:{item:ProductCategoryDTO}) => (
     <ListItem bottomDivider>
         {console.log(item," I AM FROM ZEUS")}
@@ -16,15 +13,9 @@ const renderItem = ({ item }:{item:ProductCategoryDTO}) => (
     </ListItem>
 )
 const keyExtractor = (productCategoryDTO:ProductCategoryDTO, index:number) => index.toString()
-
-export default () => {
-    const menu = useSelector<RootState,MenuState>(selectMenu);
-
-    return  <FlatList
-        keyExtractor={keyExtractor}
-        data={menu.productCategories}
-        renderItem={renderItem}></FlatList>
-
-
-
+export default ({productCategories}:{productCategories:ProductCategoryDTO[]}) => {
+    return <FlatList
+    keyExtractor={keyExtractor}
+    data={productCategories}
+    renderItem={renderItem}></FlatList>
 }
