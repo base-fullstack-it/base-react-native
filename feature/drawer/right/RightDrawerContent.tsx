@@ -5,9 +5,16 @@ import { Header } from "@rneui/themed";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {useSelector} from "react-redux";
 import CartItem from "../../../components/cart/CartItem";
+import { useEffect } from "react";
+import {getCartTotal} from "../../cart/cartSlice";
+import {useAppDispatch} from "../../../app/hooks";
 
 export default (props: DrawerContentComponentProps) => {
     const { totalAmount, items } = useSelector<any, any>((state) => state.cart);
+    const dispatch = useAppDispatch();
+    useEffect(() => {
+        dispatch(getCartTotal());
+    }, [items]);
     // return
     return (
         <SafeAreaProvider>
@@ -21,7 +28,7 @@ export default (props: DrawerContentComponentProps) => {
         }}
         />
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                {console.log(items,'itemsitems')}
+                {console.log(items.length,'itemsitems')}
 
                 <Text>View Order</Text>
                 {items.map((item:any) => <CartItem item={item}/>)}
