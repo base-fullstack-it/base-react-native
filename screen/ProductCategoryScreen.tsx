@@ -7,7 +7,6 @@ import {ProductCategoryDTO} from "../model/dto/ProductCategoryDTO";
 const renderItem = ({ item }:{item:ProductCategoryDTO}) => (
     <ListItem bottomDivider>
         {console.log(item," I AM FROM ZEUS")}
-        {/*<Avatar source={{uri: item.avatar_url}} />*/}
         <ListItem.Content>
             <ListItem.Title>{item.name}</ListItem.Title>
             <ListItem.Subtitle>{item.imageLocation}</ListItem.Subtitle>
@@ -19,7 +18,8 @@ const keyExtractor = (productCategoryDTO:ProductCategoryDTO, index:number) => in
 
 export default () => {
     const menu = useSelector<RootState,MenuState>(selectMenu);
-
+// let newArr = menu.productCategories;
+// newArr?.c       oncat(menu.productCategories);
     return  <FlatList
         keyExtractor={keyExtractor}
         data={menu.productCategories}
