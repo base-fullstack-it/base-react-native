@@ -1,14 +1,30 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "../../../app/store";
 import {MenuDTO} from "../../../model/dto/MenuDTO";
+import {DSPRDTO} from "../../../model/dto/DSPRDTO";
+import {ProductCategoryDTO} from "../../../model/dto/ProductCategoryDTO";
+import {ProductDTO} from "../../../model/dto/ProductDTO";
+import {BrandDTO} from "../../../model/dto/BrandDTO";
 
 export interface MenuState {
-    menu: MenuDTO | null;
+    // menu: MenuDTO | null;
+    readonly driver: Readonly<DSPRDTO> | undefined,
+    readonly dspr: Readonly<DSPRDTO> | undefined,
+    readonly productCategories:ReadonlyArray<ProductCategoryDTO[]> | undefined,
+    readonly products: ReadonlyArray<ProductDTO[]> | undefined,
+    readonly address: Readonly<AddressDTO> | undefined,
+    readonly brands: ReadonlyArray<BrandDTO[]>| undefined
 }
 
 const initialState: MenuState = {
-    menu: null,
-    // menu: 3,
+    address: undefined,
+    brands: undefined,
+    driver: undefined,
+    dspr: undefined,
+    productCategories: undefined,
+    products: undefined
+    // menu: null,
+
 };
 export const menuSlice = createSlice({
     name: "menu",
