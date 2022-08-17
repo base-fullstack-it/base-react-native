@@ -1,6 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from "./data";
+export interface CartState {
+    readonly items: any,
+    readonly totalAmount: number,
+    readonly totalCount: number
+}
 
+const initialState: CartState = {
+    items: data,
+    totalAmount: 0,
+    totalCount: 0,
+
+};
 const cartSlice = createSlice({
     name: "cart",
     initialState: {

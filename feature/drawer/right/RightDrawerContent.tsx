@@ -3,9 +3,11 @@ import {DrawerContentComponentProps} from "@react-navigation/drawer";
 import RightDrawerToCheckOutButton from "../../../components/checkout/RightDrawerToCheckOutButton";
 import { Header } from "@rneui/themed";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import {useSelector} from "react-redux";
+import CartItem from "../../../components/cart/CartItem";
 
 export default (props: DrawerContentComponentProps) => {
-
+    const { totalAmount, items } = useSelector<any, any>((state) => state.cart);
     // return
     return (
         <SafeAreaProvider>
@@ -19,8 +21,11 @@ export default (props: DrawerContentComponentProps) => {
         }}
         />
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                {console.log(items,'itemsitems')}
 
                 <Text>View Order</Text>
+                {items.map((item:any) => <CartItem item={item}/>)}
+                <Text>${totalAmount}</Text>
 
                 <RightDrawerToCheckOutButton/>
             </View>
