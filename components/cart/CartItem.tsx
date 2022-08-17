@@ -6,7 +6,7 @@ export default ({item}:{item:any}) => {
     const dispatch = useAppDispatch();
     return<ListItem>
         {/*<Text>title:{item.title}</Text>*/}
-        <Text>price:{item.price}</Text>
+        <Text>{item.title}</Text>
         <Button onPress={()=>dispatch(decrease(item.id))} title={"<"}/>
         <Text>{item.amount}</Text>
         <Button onPress={()=>dispatch(increase(item.id))} title={">"}/>
