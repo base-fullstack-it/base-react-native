@@ -5,9 +5,10 @@ import qs from "query-string";
 import {getEnvVars} from "../../environment";
 export type AppState = ReturnType<typeof store.getState>;
 const { apiUrl } = getEnvVars();
+
 export const vers = "v1/";
 
-const baseQuery = fetchBaseQuery(
+export const baseQuery = fetchBaseQuery(
     {
             mode:"cors",
             credentials: 'include',
@@ -18,7 +19,7 @@ function instanceOfFetchArgs(object: any): object is FetchArgs {
 
     return object.params;
 }
-const dynamicBaseQuery: BaseQueryFn<
+export const dynamicBaseQuery: BaseQueryFn<
     string | FetchArgs,
     unknown,
     FetchBaseQueryError
