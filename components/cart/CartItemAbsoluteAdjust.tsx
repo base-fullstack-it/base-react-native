@@ -9,7 +9,7 @@ import {useAppDispatch} from "../../app/hooks";
 export default ({item,invokeToggle}:{item:any,invokeToggle: () => void}) => {
     const dispatch = useAppDispatch();
     const theme = useTheme();
-        return <View style={{position:"absolute",opacity:0.913,top:0,bottom:0,width:"100%",backgroundColor:theme.theme.colors.primary}}>
+        return <View style={{position:"absolute",opacity:0.913,width:"100%",backgroundColor:theme.theme.colors.primary}}>
             <View  style={{flexDirection:"row",justifyContent:"space-around"}}>
                 <Button
                     color={"success"}
