@@ -1,4 +1,4 @@
-import {Button, ListItem} from "@rneui/themed";
+import {Button, ListItem, useTheme} from "@rneui/themed";
 import {Pressable, Text, View} from "react-native";
 import {decrease, increase} from "../../feature/cart/cartSlice";
 import {useAppDispatch} from "../../app/hooks";
@@ -8,13 +8,14 @@ import {useAppDispatch} from "../../app/hooks";
 //then we can use flex inside of this of absolute to create the rows
 export default ({item,invokeToggle}:{item:any,invokeToggle: () => void}) => {
     const dispatch = useAppDispatch();
-        return <><View style={{position:"absolute",opacity:0.6,top:0,bottom:0,width:"100%",backgroundColor:"red"}}>
+    const theme = useTheme();
+        return <View style={{position:"absolute",opacity:0.913,top:0,bottom:0,width:"100%",backgroundColor:theme.theme.colors.primary}}>
             <View  style={{flexDirection:"row",justifyContent:"space-around"}}>
                 <Button
                     color={"success"}
                     onPress={()=>dispatch(decrease(item.id))} title={"<"}/>
                 <View style={{justifyContent:"center"}}>
-                <Text>
+                <Text style={{fontWeight:"700",color:"white"}}>
                     {item.amount}
                     </Text>
                 </View>
@@ -25,14 +26,13 @@ export default ({item,invokeToggle}:{item:any,invokeToggle: () => void}) => {
             {/*/!*<View style={{position:"absolute",left:10}}>*!/*/}
             {/*<View style={{left:70}}>*/}
             {/*    <Text>Done</Text>*/}
-            <Pressable onPress={invokeToggle} style={{justifyContent:"center",alignItems:"center"}}>
-                <Text>Done</Text>
+            <Pressable onPress={invokeToggle} style={{justifyContent:"center",alignItems:"center",}}>
+                <Text style={{fontWeight:"700",color:"white"}}>Done</Text>
             </Pressable>
             </View>
         </View>
 {/* <View style={{position:"absolute",backgroundColor:"blue",width:"25%",opacity:0.2,right:15}}>*/}
 {/*<Text>Done</Text>*/}
 {/*</View>*/}
-            </>
 
 }
