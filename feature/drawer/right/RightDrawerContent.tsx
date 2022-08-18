@@ -28,7 +28,6 @@ export default (props: DrawerContentComponentProps) => {
         }}
         />
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text>View Order</Text>
                 {items.map((item:any) => <CartItem item={item}/>)}
                 <Text>${totalAmount}</Text>
 
