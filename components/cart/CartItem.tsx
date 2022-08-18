@@ -11,9 +11,23 @@ export default ({item}:{item:any}) => {
         <View style={{flexDirection:"column"}}>
             {/*<ion-icon name="chevron-up-outline"></ion-icon>*/}
             {/*<Ionicons name={"chevron-up-outline"}/>*/}
-        <Button onPress={()=>dispatch(decrease(item.id))} title={"<"}/>
+        {/*<Button onPress={()=>dispatch(decrease(item.id))} title={"<"}/>*/}
         <Text>{item.amount}</Text>
-        <Button onPress={()=>dispatch(increase(item.id))} title={">"}/>
+        {/*<Button onPress={()=>dispatch(increase(item.id))} title={">"}/>*/}
+        </View>
+        <View style={{
+            position:"absolute",
+            top:0,
+            left:0,
+            bottom:0,
+            opacity: 0.60,
+            backgroundColor:"red",
+            width:"100%",
+            // height:"100%"
+        }}>
+            {/*<Button onPress={()=>dispatch(decrease(item.id))} title={"<"}/>*/}
+            <Text>{item.amount}</Text>
+            {/*<Button onPress={()=>dispatch(increase(item.id))} title={">"}/>*/}
         </View>
     </ListItem>
 
