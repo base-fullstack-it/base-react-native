@@ -5,8 +5,7 @@ import {decrease, increase, remove} from "../../feature/cart/cartSlice";
 import {Ionicons} from "@expo/vector-icons";
 export default ({item}:{item:any}) => {
     const dispatch = useAppDispatch();
-    return<ListItem>
-        {/*<Text>title:{item.title}</Text>*/}
+    return<ListItem style={{width:"100%"}}>
         <Text>{item.title}</Text>
         <View style={{flexDirection:"column"}}>
             {/*<ion-icon name="chevron-up-outline"></ion-icon>*/}
@@ -15,7 +14,7 @@ export default ({item}:{item:any}) => {
         <Text>{item.amount}</Text>
         {/*<Button onPress={()=>dispatch(increase(item.id))} title={">"}/>*/}
         </View>
-        <View style={{
+        <ListItem style={{
             position:"absolute",
             top:0,
             left:0,
@@ -23,12 +22,18 @@ export default ({item}:{item:any}) => {
             opacity: 0.60,
             backgroundColor:"red",
             width:"100%",
+            justifyContent: 'center',
+            alignItems: 'center'
             // height:"100%"
         }}>
-            {/*<Button onPress={()=>dispatch(decrease(item.id))} title={"<"}/>*/}
+            <Button
+                style={{justifyContent:"flex-start"}}
+                onPress={()=>dispatch(decrease(item.id))} title={"<"}/>
             <Text>{item.amount}</Text>
-            {/*<Button onPress={()=>dispatch(increase(item.id))} title={">"}/>*/}
-        </View>
+            <Button
+                style={{justifyContent:"flex-end"}}
+                onPress={()=>dispatch(increase(item.id))} title={">"}/>
+        </ListItem>
     </ListItem>
 
 }
