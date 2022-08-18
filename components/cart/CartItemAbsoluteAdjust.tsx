@@ -26,7 +26,7 @@ export default ({item,invokeToggle}:{item:any,invokeToggle: () => void}) => {
             {/*/!*<View style={{position:"absolute",left:10}}>*!/*/}
             {/*<View style={{left:70}}>*/}
             {/*    <Text>Done</Text>*/}
-            <Pressable onPress={invokeToggle} style={{justifyContent:"center",alignItems:"center",}}>
+            <Pressable onPress={invokeToggle} style={{justifyContent:"center",alignItems:"center",borderLeftWidth:1,paddingLeft:10,borderColor:"white"}}>
                 <Text style={{fontWeight:"700",color:"white"}}>Done</Text>
             </Pressable>
             </View>
