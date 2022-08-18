@@ -14,8 +14,6 @@ export default () => {
                 drawerPosition: 'right',
                 headerShown: false,
                 swipeEdgeWidth:0,
-                // swipeEnabled:false
-
             }}
 
         >
