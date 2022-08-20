@@ -13,8 +13,7 @@ const keyExtractor = (productCategoryDTO:ProductCategoryDTO, index:number) => in
 
 export default () => {
     const menu = useSelector<RootState,MenuState>(selectMenu);
-// let newArr = menu.productCategories;
-// newArr?.c       oncat(menu.productCategories);
+    console.log(menu.products,'PRODCMENUU')
     return  <FlatList
         keyExtractor={keyExtractor}
         data={menu.productCategories}

@@ -3,12 +3,14 @@ import RightDrawerScreen from "../../feature/drawer/right/RightDrawerScreen";
 import ProfileScreen from "../../screen/ProfileScreen";
 import {Button, Icon, useTheme} from "@rneui/themed";
 import CheckoutScreen from "../../screen/CheckoutScreen";
+import ProductListScreen from "../../screen/ProductListScreen";
 
 export type AuthorizedParamList = {
     Main: undefined;
     Profile: undefined;
     Checkout: undefined;
     MenuTabNavigation: undefined;
+    ProductList:undefined;
 };
 
 const Stack = createNativeStackNavigator<AuthorizedParamList>();
@@ -58,8 +60,15 @@ export default () => {
                         headerTitle: "Check Out"
                     }}
                 />
-            </Stack.Group>
 
+            </Stack.Group>
+            <Stack.Screen
+                name='ProductList'
+                component={ProductListScreen}
+                options={{
+                    headerTitle: "Product List"
+                }}
+            />
 
         </Stack.Navigator>
     );
