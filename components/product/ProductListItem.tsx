@@ -18,11 +18,11 @@ export default ({productDTO}: { productDTO: ProductDTO }) =>{
     return (
         <Pressable onPress={handlePress}>
             <ListItem style={{borderWidth: 0.17}} bottomDivider>
+                <ProductAvatar item={productDTO}/>
                 <ListItem.Content style={{flexDirection: "row"}}>
                     <ListItem.Title>{productDTO.name}</ListItem.Title>
                 </ListItem.Content>
                 {/*<ProductCategoryAvatar item={item}/>*/}
-                <ProductAvatar item={productDTO}/>
             </ListItem>
         </Pressable>
     )
