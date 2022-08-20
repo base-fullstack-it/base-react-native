@@ -3,9 +3,11 @@ import {ProductCategoryDTO} from "./ProductCategoryDTO";
 
 export interface ProductDTO {
     readonly cbdMg:number;
+    readonly price:number
     readonly cbdPercentage:number;
     readonly currentPrice:Readonly<CurrentPriceDTO>;
     readonly productCategories:ReadonlyArray<ProductCategoryDTO>;
+    readonly productType:string;
 }
 // Object {
 //     "cbdMg": 5,

@@ -36,33 +36,12 @@ export const menuSlice = createSlice({
 });
 export const selectMenu = (state: RootState) => state.menu;
 
-// export const selectedProductsForCategory = createSelector(
-//     [
-//         state => state.menu.products,
-//         // (selectProductsFilteredByCategory),
-//         (state,categoryId) => categoryId
-//     ],
-//     (products:ReadonlyArray<ProductDTO>, categoryId):ProductDTO[] =>
-//         products.filter(product => product.productCategories.filter(productCategoryFromProduct => productCategoryFromProduct.id === categoryId))
-// );
-
-//
-// export const selectedProductsForCategory = createSelector(
-//     [
-//         state => state.menu.products,
-//         // (selectProductsFilteredByCategory),
-//         (state,categoryId) => categoryId
-//     ],
-//     (products:ReadonlyArray<ProductDTO>, categoryId):void =>
-//         products.forEach(product => console.log(product.productCategories.filter(productCategoryFromProduct => productCategoryFromProduct.id === categoryId),'LOLER'))
-// );
-
 export const selectedProductsForCategory = createSelector(
     [
         state => state.menu.products,
-        // (selectProductsFilteredByCategory),
         (state,categoryId) => categoryId
     ],
+    //https://stackoverflow.com/questions/57262987/filter-array-based-on-value-inside-another-array
     (products:ReadonlyArray<ProductDTO>, categoryId):ProductDTO[] =>
         products.filter(product => product.productCategories.some(productCategoryFromProduct => productCategoryFromProduct.id === categoryId))
 );
