@@ -39,6 +39,7 @@ export const selectMenu = (state: RootState) => state.menu;
 
 export const selectProducts = (state: RootState) => state.menu.products;
 export const selectProductsFilteredByCategory = (state: RootState) => state.menu.products;
+// export const productsCategoryFromProducts = (state: RootState) => state.menu.products &&  state.menu.products.productCategories;
 // export const selectProductCategoriesFromProducts = (state: RootState) => state.menu.products;
 export const selectProductCategories = (state: RootState) => state.menu.productCategories;
 //https://stackoverflow.com/questions/40291084/use-reselect-selector-with-parameters
@@ -65,14 +66,15 @@ export const selectProductCategories = (state: RootState) => state.menu.productC
 // so ireally want to just filter based on a product selector and an input value
 export const selectedProductsForCategory = createSelector(
     [
-        selectProducts,
-        selectProductCategories
+        state => state.menu.products,
+        // (selectProductsFilteredByCategory),
+        (state,categoryId) => categoryId
     ],
-    // Output selector gets (`items, category)` as args
-    (products:ReadonlyArray<ProductDTO> | undefined
-     , category) => products && products.filter
-    (product => product.productCategories === category)
-    );
+    (products:ReadonlyArray<ProductDTO>, categoryId):ProductDTO[] => products && products
+        .filter(product => product.productCategories
+            .filter(productCategoryFromProduct => productCategoryFromProduct.id === categoryId)
+    )
+);
 
 export const { setMenu } = menuSlice.actions;
 
