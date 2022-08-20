@@ -20,8 +20,6 @@ export default ({productDTO}: { productDTO: ProductDTO }) =>{
             <ListItem style={{borderWidth: 0.17}} bottomDivider>
                 <ListItem.Content style={{flexDirection: "row"}}>
                     <ListItem.Title>{productDTO.name}</ListItem.Title>
-                    {/*<ListItem.Title>{productDTO.currentPrice.price}</ListItem.Title>*/}
-                    {/*<Text>{productDTO.productType}</Text>*/}
                 </ListItem.Content>
                 {/*<ProductCategoryAvatar item={item}/>*/}
                 <ProductAvatar item={productDTO}/>
