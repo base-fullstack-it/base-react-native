@@ -8,6 +8,8 @@ export interface ProductDTO {
     readonly currentPrice:Readonly<CurrentPriceDTO>;
     readonly productCategories:ReadonlyArray<ProductCategoryDTO>;
     readonly productType:string;
+    readonly name:string;
+    readonly imageLocation:string;
 }
 // Object {
 //     "cbdMg": 5,
