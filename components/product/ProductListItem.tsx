@@ -8,7 +8,7 @@ import ProductAvatar from "../image/ProductAvatar";
 export default ({productDTO}: { productDTO: ProductDTO }) =>{
     console.log(productDTO,'productDTOproductDTO')
 
-    const handleNavigate = useNavigateToProductList();
+    // const handleNavigate = useNavigateToProductList();
     const handlePress = () => {
         // console.log(item,'ITEMA')
         // handleNavigate(item.id);

@@ -8,7 +8,7 @@ export default ({item}: { item: ProductCategoryDTO }) => {
     const handleNavigate = useNavigateToProductList();
     const handlePress = () => {
         // console.log(item,'ITEMA')
-        handleNavigate(item.id);
+        handleNavigate(item.id,item.name);
         // navigation();
     }
 

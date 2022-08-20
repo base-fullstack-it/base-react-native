@@ -62,13 +62,16 @@ export default () => {
                 />
 
             </Stack.Group>
+            <Stack.Group screenOptions={({route,navigation}:{route:any,navigation:any}) => ({
+                headerBackTitle:'',
+                headerTitle:route.params.categoryName,
+            })
+            }>
             <Stack.Screen
                 name='ProductList'
                 component={ProductListScreen}
-                options={{
-                    headerTitle: "Product List"
-                }}
             />
+            </Stack.Group>
 
         </Stack.Navigator>
     );
