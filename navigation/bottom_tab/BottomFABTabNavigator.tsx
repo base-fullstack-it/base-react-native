@@ -34,11 +34,6 @@ export default () => {
             {/*            }}*/}
             {/*            component={MenuTabNavigation} />*/}
             <Tab.Screen name={"ProductCategoryScreen"}
-                        options={{
-                            tabBarIcon:({color, size}) => (
-                                <Ionicons name={"home-outline"} color={color} size={size}/>
-                            )
-                        }}
                         component={ProductCategoryScreen} />
         </Tab.Navigator>
     )

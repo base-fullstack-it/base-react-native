@@ -64,11 +64,21 @@ export default () => {
             </Stack.Group>
             <Stack.Group screenOptions={({route,navigation}:{route:any,navigation:any}) => ({
                 headerBackTitle:'',
+                headerTintColor:"white",
                 headerTitle:route.params.categoryName,
             })
             }>
             <Stack.Screen
                 name='ProductList'
+                options={({route,navigation}:{route:any,navigation:any}) => ({
+                    headerBackTitle:'',
+                    headerTintColor:"white",
+                    headerTitle:route.params.categoryName,
+                    headerStyle: {
+                        backgroundColor: theme.theme.colors.primary,
+                    },
+                })
+                }
                 component={ProductListScreen}
             />
             </Stack.Group>
