@@ -35,51 +35,38 @@ export const menuSlice = createSlice({
     },
 });
 export const selectMenu = (state: RootState) => state.menu;
-// export const selectProductCategories = (state: RootState) => state.menu;
 
-export const selectProducts = (state: RootState) => state.menu.products;
-export const selectProductsFilteredByCategory = (state: RootState) => state.menu.products;
-// export const productsCategoryFromProducts = (state: RootState) => state.menu.products &&  state.menu.products.productCategories;
-// export const selectProductCategoriesFromProducts = (state: RootState) => state.menu.products;
-export const selectProductCategories = (state: RootState) => state.menu.productCategories;
-//https://stackoverflow.com/questions/40291084/use-reselect-selector-with-parameters
-//i want to do that above with the create selector first comment
-
-//// selector.js
-// const selectItemsByCategory = createSelector(
-//   [
-//     // Usual first input - extract value from `state`
-//     state => state.items,
-//     // Take the second arg, `category`, and forward to the output selector
-//     (state, category) => category
-//   ],
-//   // Output selector gets (`items, category)` as args
-//   (items, category) => items.filter(item => item.category === category)
+// export const selectedProductsForCategory = createSelector(
+//     [
+//         state => state.menu.products,
+//         // (selectProductsFilteredByCategory),
+//         (state,categoryId) => categoryId
+//     ],
+//     (products:ReadonlyArray<ProductDTO>, categoryId):ProductDTO[] =>
+//         products.filter(product => product.productCategories.filter(productCategoryFromProduct => productCategoryFromProduct.id === categoryId))
 // );
+
 //
-// // App.js
-// const items = selectItemsByCategory(state, 'javascript');
-// // Another way if you're using redux hook:
-// const items = useSelector(state => selectItemsByCategory(state, 'javascript'));
-//i want to iterate through each product and get th eid from each  product categor
-// then i want to give an id not using a slector here to get that category data
-// so ireally want to just filter based on a product selector and an input value
+// export const selectedProductsForCategory = createSelector(
+//     [
+//         state => state.menu.products,
+//         // (selectProductsFilteredByCategory),
+//         (state,categoryId) => categoryId
+//     ],
+//     (products:ReadonlyArray<ProductDTO>, categoryId):void =>
+//         products.forEach(product => console.log(product.productCategories.filter(productCategoryFromProduct => productCategoryFromProduct.id === categoryId),'LOLER'))
+// );
+
 export const selectedProductsForCategory = createSelector(
     [
         state => state.menu.products,
         // (selectProductsFilteredByCategory),
         (state,categoryId) => categoryId
     ],
-    (products:ReadonlyArray<ProductDTO>, categoryId):ProductDTO[] => products && products
-        .filter(product => product.productCategories
-            .filter(productCategoryFromProduct => productCategoryFromProduct.id === categoryId)
-    )
+    (products:ReadonlyArray<ProductDTO>, categoryId):ProductDTO[] =>
+        products.filter(product => product.productCategories.some(productCategoryFromProduct => productCategoryFromProduct.id === categoryId))
 );
 
 export const { setMenu } = menuSlice.actions;
 
 export default menuSlice.reducer;
-
-// console.log(driver, dspr, productCategories, products,address,"CALLED44")
-// Object.assign(state.menu, { driver, dspr, productCategories, products,address })
-// state.menu.dspr = dspr;
