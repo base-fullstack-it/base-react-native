@@ -3,14 +3,15 @@ import {Pressable} from "react-native";
 import {ProductDTO} from "../../model/dto/ProductDTO";
 import ProductAvatar from "../image/ProductAvatar";
 import useNavigateToProductList from "../../hooks/navigation/useNavigateToProductList";
+import useNavigateToProductDetail from "../../hooks/navigation/useNavigateToProductDetail";
 
 export default ({productDTO}: { productDTO: ProductDTO }) =>{
     console.log(productDTO,'productDTOproductDTO')
 
-    const handleNavigate = useNavigateToProductList();
+    const handleNavigate = useNavigateToProductDetail();
     const handlePress = () => {
         // console.log(item,'ITEMA')
-        // handleNavigate(item.id);
+        handleNavigate(productDTO.id,productDTO.name);
         // navigation();
     }
 

@@ -12,7 +12,7 @@ export type AuthorizedParamList = {
     Checkout: undefined;
     MenuTabNavigation: undefined;
     ProductList:undefined;
-    ProductDetailScreen:undefined;
+    ProductDetail:undefined;
 };
 
 const Stack = createNativeStackNavigator<AuthorizedParamList>();
@@ -63,10 +63,10 @@ export default () => {
                     }}
                 />
                 <Stack.Screen
-                    name='ProductDetailScreen'
+                    name='ProductDetail'
                     component={ProductDetailScreen}
                     options={({route, navigation}: { route: any, navigation: any }) => ({
-                        headerTitle: route.params.productName,
+                        headerTitle: route.params.name,
                     })
                     }
                 />

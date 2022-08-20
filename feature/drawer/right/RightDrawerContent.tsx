@@ -13,7 +13,7 @@ export default (props: DrawerContentComponentProps) => {
     const { totalAmount, items } = useSelector<any, any>((state) => state.cart);
     const dispatch = useAppDispatch();
     useEffect(() => {
-        dispatch(getCartTotal());
+        dispatch(payload => getCartTotal(payload));
     }, [items]);
     // return
     return (

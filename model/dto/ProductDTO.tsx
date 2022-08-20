@@ -2,6 +2,7 @@ import {CurrentPriceDTO} from "./CurrentPriceDTO";
 import {ProductCategoryDTO} from "./ProductCategoryDTO";
 
 export interface ProductDTO {
+    readonly id:number;
     readonly cbdMg:number;
     readonly price:number
     readonly cbdPercentage:number;
