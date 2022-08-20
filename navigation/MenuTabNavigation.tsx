@@ -1,12 +1,8 @@
 import React from "react";
-// import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import TabNavigator from "../components/TabNavigator";
 import ProductScreen from "../screen/ProductScreen";
 import ProductCategoryScreen from "../screen/ProductCategoryScreen";
-import {useTheme} from "@rneui/themed";
-import {createMaterialBottomTabNavigator} from "@react-navigation/material-bottom-tabs";
 import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs";
-import {useSafeAreaInsets} from "react-native-safe-area-context";
 import useMenuFactory from "../hooks/menu/useMenuFactory";
 import MenuLocationTypes from "../model/enum/MenuLocationTypes";
 

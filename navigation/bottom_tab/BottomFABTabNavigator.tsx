@@ -13,10 +13,8 @@ import {useTheme} from "@rneui/themed";
 import ProductNavigator from "../ProductNavigator";
 
 export type BottomTabNavigatorParamList = {
-    // MenuTabNavigation: undefined;
+
     ProductNavigator: undefined;
-    // ProductCategoryScreen: undefined;
-    // ProductList: undefined;
 };
 export default () => {
     const theme = useTheme();
@@ -26,13 +24,7 @@ export default () => {
 
     return (
         <Tab.Navigator
-            screenOptions={{
-                // tabBarShowLabel:false,
-                // headerShown: false,
-            }}
-
             tabBar={(props) => <FABTabNavigator {...props}/>}
-
         >
             {/*<Tab.Screen name={"MenuTabNavigation"}*/}
             {/*            options={{*/}
@@ -47,17 +39,6 @@ export default () => {
                             headerShown: false,
                         }}
                         component={ProductNavigator} />
-
-            {/*<Tab.Screen name={"ProductList"}*/}
-            {/*            options={({route,navigation}:{route:any,navigation:any}) => ({*/}
-            {/*                headerBackTitle:'Back',*/}
-            {/*                headerTintColor:"white",*/}
-            {/*                // headerTitle:route.params.categoryName,*/}
-            {/*                headerStyle: {*/}
-            {/*                    backgroundColor: theme.theme.colors.primary,*/}
-            {/*                },*/}
-            {/*            })}*/}
-            {/*            component={ProductListScreen} />*/}
         </Tab.Navigator>
     )
 

@@ -3,7 +3,6 @@ import RightDrawerScreen from "../../feature/drawer/right/RightDrawerScreen";
 import ProfileScreen from "../../screen/ProfileScreen";
 import {Button, Icon, useTheme} from "@rneui/themed";
 import CheckoutScreen from "../../screen/CheckoutScreen";
-import ProductListScreen from "../../screen/ProductListScreen";
 import ProductDetailScreen from "../../screen/ProductDetailScreen";
 
 export type AuthorizedParamList = {
@@ -11,7 +10,6 @@ export type AuthorizedParamList = {
     Profile: undefined;
     Checkout: undefined;
     MenuTabNavigation: undefined;
-    // ProductList:undefined;
     ProductDetail:undefined;
 };
 
@@ -70,22 +68,7 @@ export default () => {
                     })
                     }
                 />
-
-
             </Stack.Group>
-            {/*<Stack.Screen*/}
-            {/*    name='ProductList'*/}
-            {/*    options={({route,navigation}:{route:any,navigation:any}) => ({*/}
-            {/*        headerBackTitle:'',*/}
-            {/*        headerTintColor:"white",*/}
-            {/*        headerTitle:route.params.categoryName,*/}
-            {/*        headerStyle: {*/}
-            {/*            backgroundColor: theme.theme.colors.primary,*/}
-            {/*        },*/}
-            {/*    })*/}
-            {/*    }*/}
-            {/*    component={ProductListScreen}*/}
-            {/*/>*/}
         </Stack.Navigator>
     );
 };
