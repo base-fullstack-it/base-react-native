@@ -4,6 +4,9 @@ import ProfileScreen from "../../screen/ProfileScreen";
 import {Button, Icon, useTheme} from "@rneui/themed";
 import CheckoutScreen from "../../screen/CheckoutScreen";
 import ProductDetailScreen from "../../screen/ProductDetailScreen";
+import {useAppDispatch} from "../../app/hooks";
+import {getCartItems, getCartTotal} from "../../feature/cart/cartSlice";
+import {useEffect} from "react";
 
 export type AuthorizedParamList = {
     Main: undefined;
@@ -17,7 +20,11 @@ const Stack = createNativeStackNavigator<AuthorizedParamList>();
 
 export default () => {
     const theme = useTheme();
+    const dispatch = useAppDispatch();
 
+    useEffect(() => {
+        dispatch(getCartTotal());
+    }, []);
     return (
         <Stack.Navigator
             initialRouteName='Main'
