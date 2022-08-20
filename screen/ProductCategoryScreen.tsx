@@ -1,10 +1,12 @@
 import {useSelector} from "react-redux";
 import {MenuState, selectMenu} from "../feature/menu/slice/menuSlice";
 import {RootState} from "../app/store";
-import {FlatList, View} from "react-native";
+import {FlatList, SafeAreaView, StatusBar, View} from "react-native";
 import {ProductCategoryDTO} from "../model/dto/ProductCategoryDTO";
 import {getEnvVars} from "../environment";
 import ProductCategoryListItem from "../components/category/ProductCategoryListItem";
+import React from "react";
+import {useTheme} from "@rneui/themed";
 const { apiUrl } = getEnvVars();
 const renderItem = ({ item }:{item:ProductCategoryDTO}) => {
     return <ProductCategoryListItem item={item}/>
@@ -13,11 +15,16 @@ const keyExtractor = (productCategoryDTO:ProductCategoryDTO, index:number) => in
 
 export default () => {
     const menu = useSelector<RootState,MenuState>(selectMenu);
-    // console.log(menu.products,'PRODCMENUU')
-    return  <FlatList
+    const theme = useTheme();
+
+    return  <>
+        <SafeAreaView style={{ flex: 0, backgroundColor:theme.theme.colors.primary }} />
+        <StatusBar barStyle={"light-content"}/>
+        <FlatList
         keyExtractor={keyExtractor}
         data={menu.productCategories}
-        renderItem={renderItem}></FlatList>
+        renderItem={renderItem}/>
+        </>
 
 
 

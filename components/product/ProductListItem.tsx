@@ -1,14 +1,13 @@
 import {ListItem} from "@rneui/themed";
-import {ProductCategoryDTO} from "../../model/dto/ProductCategoryDTO";
-import {Pressable,Text} from "react-native";
-import useNavigateToProductList from "../../hooks/navigation/useNavigateToProductList";
+import {Pressable} from "react-native";
 import {ProductDTO} from "../../model/dto/ProductDTO";
 import ProductAvatar from "../image/ProductAvatar";
+import useNavigateToProductList from "../../hooks/navigation/useNavigateToProductList";
 
 export default ({productDTO}: { productDTO: ProductDTO }) =>{
     console.log(productDTO,'productDTOproductDTO')
 
-    // const handleNavigate = useNavigateToProductList();
+    const handleNavigate = useNavigateToProductList();
     const handlePress = () => {
         // console.log(item,'ITEMA')
         // handleNavigate(item.id);
