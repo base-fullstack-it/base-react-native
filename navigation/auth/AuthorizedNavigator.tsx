@@ -11,7 +11,7 @@ export type AuthorizedParamList = {
     Profile: undefined;
     Checkout: undefined;
     MenuTabNavigation: undefined;
-    ProductList:undefined;
+    // ProductList:undefined;
     ProductDetail:undefined;
 };
 
@@ -73,19 +73,19 @@ export default () => {
 
 
             </Stack.Group>
-            <Stack.Screen
-                name='ProductList'
-                options={({route,navigation}:{route:any,navigation:any}) => ({
-                    headerBackTitle:'',
-                    headerTintColor:"white",
-                    headerTitle:route.params.categoryName,
-                    headerStyle: {
-                        backgroundColor: theme.theme.colors.primary,
-                    },
-                })
-                }
-                component={ProductListScreen}
-            />
+            {/*<Stack.Screen*/}
+            {/*    name='ProductList'*/}
+            {/*    options={({route,navigation}:{route:any,navigation:any}) => ({*/}
+            {/*        headerBackTitle:'',*/}
+            {/*        headerTintColor:"white",*/}
+            {/*        headerTitle:route.params.categoryName,*/}
+            {/*        headerStyle: {*/}
+            {/*            backgroundColor: theme.theme.colors.primary,*/}
+            {/*        },*/}
+            {/*    })*/}
+            {/*    }*/}
+            {/*    component={ProductListScreen}*/}
+            {/*/>*/}
         </Stack.Navigator>
     );
 };

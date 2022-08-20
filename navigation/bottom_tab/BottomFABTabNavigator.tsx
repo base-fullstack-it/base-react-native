@@ -8,21 +8,29 @@ import {useLoggedInUserQuery} from "../../services/userApiSlice";
 import ProductCategoryScreen from "../../screen/ProductCategoryScreen";
 import useMenuFactory from "../../hooks/menu/useMenuFactory";
 import MenuLocationTypes from "../../model/enum/MenuLocationTypes";
+import ProductListScreen from "../../screen/ProductListScreen";
+import {useTheme} from "@rneui/themed";
+import ProductNavigator from "../ProductNavigator";
 
 export type BottomTabNavigatorParamList = {
     // MenuTabNavigation: undefined;
-    ProductCategoryScreen: undefined;
+    ProductNavigator: undefined;
+    // ProductCategoryScreen: undefined;
+    // ProductList: undefined;
 };
 export default () => {
+    const theme = useTheme();
     const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
+
     useMenuFactory(MenuLocationTypes.DEFAULT_MENU);
 
     return (
         <Tab.Navigator
             screenOptions={{
-                tabBarShowLabel:false,
-                headerShown: false,
+                // tabBarShowLabel:false,
+                // headerShown: false,
             }}
+
             tabBar={(props) => <FABTabNavigator {...props}/>}
 
         >
@@ -33,8 +41,23 @@ export default () => {
             {/*                )*/}
             {/*            }}*/}
             {/*            component={MenuTabNavigation} />*/}
-            <Tab.Screen name={"ProductCategoryScreen"}
-                        component={ProductCategoryScreen} />
+            <Tab.Screen name={"ProductNavigator"}
+                        options={{
+                            // tabBarShowLabel:false,
+                            headerShown: false,
+                        }}
+                        component={ProductNavigator} />
+
+            {/*<Tab.Screen name={"ProductList"}*/}
+            {/*            options={({route,navigation}:{route:any,navigation:any}) => ({*/}
+            {/*                headerBackTitle:'Back',*/}
+            {/*                headerTintColor:"white",*/}
+            {/*                // headerTitle:route.params.categoryName,*/}
+            {/*                headerStyle: {*/}
+            {/*                    backgroundColor: theme.theme.colors.primary,*/}
+            {/*                },*/}
+            {/*            })}*/}
+            {/*            component={ProductListScreen} />*/}
         </Tab.Navigator>
     )
 
