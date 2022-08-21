@@ -19,7 +19,7 @@ export default ({flowerProductClass}:{flowerProductClass:FlowerProductClass}) =>
         buttonStyle={styles.button}
         // onPress={handleAddProductToCart}
         // title={displayPrice}
-        title={flowerProductClass.getDisplayPriceFromCurrentPrice()}
+        title={flowerProductClass.getDisplayPrice()}
         // disabled={(orderDetailInCartForProduct && orderDetailInCartForProduct.unit === unit.name)}
     />
 }
