@@ -2,9 +2,9 @@ import {ProductDTO} from "../../dto/ProductDTO";
 import {FlowerUnitDTO} from "../../dto/FlowerUnitDTO";
 
 
-export class ProductClass {
-    constructor(
-        protected readonly productDTO:ProductDTO,
+export abstract class ProductClass {
+    protected constructor(
+        readonly productDTO:ProductDTO,
     )
     {}
     protected getDisplayPriceFrom(price:any){
