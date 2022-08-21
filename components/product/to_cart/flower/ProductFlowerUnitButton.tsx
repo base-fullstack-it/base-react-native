@@ -5,7 +5,7 @@ import {FlowerProductClass} from "../../../../model/class/product/FlowerProductC
 
 // export default ({product, unit, orderDetailInCartForProduct}) =>{
 export default ({flowerProductClass}:{flowerProductClass:FlowerProductClass}) =>{
-    flowerProductClass.getCurrentFlowerPrice();
+
     // console.log(product,"PRODUCCTRR",unit,'unit')
     // const dispatch = useDispatch();
     // const price = product.currentPrice[`${unit.name}Price`] || null;//https://stackoverflow.com/questions/60709946/using-or-syntax-inside-of-react-usestate-for-assignment
@@ -19,7 +19,7 @@ export default ({flowerProductClass}:{flowerProductClass:FlowerProductClass}) =>
         buttonStyle={styles.button}
         // onPress={handleAddProductToCart}
         // title={displayPrice}
-        title={"FLOWER"}
+        title={flowerProductClass.getDisplayPriceFromCurrentPrice()}
         // disabled={(orderDetailInCartForProduct && orderDetailInCartForProduct.unit === unit.name)}
     />
 }
