@@ -3,7 +3,6 @@ import {ProductClass} from "./ProductClass";
 import {FlowerUnitEnum} from "../../enum/FlowerUnitEnum";
 import {ProductToCartValues} from "../../dto/ProductToCartValues";
 export class FlowerProductClass extends ProductClass {
-
     constructor(
         productDTO:ProductDTO,
         private readonly flowerUnitEnum:FlowerUnitEnum

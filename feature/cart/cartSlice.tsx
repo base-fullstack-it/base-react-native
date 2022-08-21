@@ -70,6 +70,10 @@ const cartSlice = createSlice({
         getCartItems: (state) => {
             state.items = data;
         },
+        addProductToCart:(state,action) => {
+            console.log(action.payload,"actionpayloadYOU MADE IT HERE")
+            // state.items.push(action.payload);
+        }
     },
 });
 
@@ -80,6 +84,7 @@ export const {
     decrease,
     clearCart,
     getCartItems,
+    addProductToCart
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

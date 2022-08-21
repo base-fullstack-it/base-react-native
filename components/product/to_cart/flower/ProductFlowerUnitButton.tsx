@@ -4,6 +4,7 @@ import {Button} from "@rneui/themed";
 import {FlowerProductClass} from "../../../../model/class/product/FlowerProductClass";
 import {ProductClass} from "../../../../model/class/product/ProductClass";
 import {useAppDispatch} from "../../../../app/hooks";
+import {addProductToCart} from "../../../../feature/cart/cartSlice";
 
 // export default ({product, unit, orderDetailInCartForProduct}) =>{
 export default ({flowerProductClass}:{flowerProductClass:FlowerProductClass}) =>{
@@ -22,8 +23,9 @@ export default ({flowerProductClass}:{flowerProductClass:FlowerProductClass}) =>
     return <Button
         buttonStyle={styles.button}
         // onPress={handleAddProductToCart}
-        onPress={()=>console.log("TROL",flowerProductClass.productToCartValues())}
-        // title={displayPrice}
+        onPress={
+            () => dispatch(addProductToCart(flowerProductClass.productToCartValues()))
+        }
         title={flowerProductClass.getDisplayPrice()}
         // disabled={(orderDetailInCartForProduct && orderDetailInCartForProduct.unit === unit.name)}
     />
