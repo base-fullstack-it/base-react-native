@@ -13,7 +13,6 @@ export type NotAuthorizedParamList = {
 const Stack = createNativeStackNavigator<NotAuthorizedParamList>();
 
 export default () => {
-     useGetAppAccessToken();
      const theme = useTheme();
      return (
          <Stack.Navigator
