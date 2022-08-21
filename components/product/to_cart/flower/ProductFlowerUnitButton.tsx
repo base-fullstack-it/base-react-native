@@ -3,9 +3,12 @@ import {StyleSheet} from "react-native";
 import {Button} from "@rneui/themed";
 import {FlowerProductClass} from "../../../../model/class/product/FlowerProductClass";
 import {ProductClass} from "../../../../model/class/product/ProductClass";
+import {useAppDispatch} from "../../../../app/hooks";
 
 // export default ({product, unit, orderDetailInCartForProduct}) =>{
 export default ({flowerProductClass}:{flowerProductClass:FlowerProductClass}) =>{
+
+    const dispatch = useAppDispatch();
 
     // console.log(product,"PRODUCCTRR",unit,'unit')
     // const dispatch = useDispatch();

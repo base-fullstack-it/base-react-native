@@ -1,16 +1,24 @@
 import {ProductDTO} from "../../dto/ProductDTO";
 import {ProductClass} from "./ProductClass";
 import {FlowerUnitEnum} from "../../enum/FlowerUnitEnum";
-
-
+import {ProductToCartValues} from "../../dto/ProductToCartValues";
 export class FlowerProductClass extends ProductClass {
-    // private FLOWER_UNITS:FlowerUnitsDTO;
+
     constructor(
         productDTO:ProductDTO,
-        // private readonly flowerUnitDTO:FlowerUnitDTO,
         private readonly flowerUnitEnum:FlowerUnitEnum
     ) {
         super(productDTO)
+    }
+    public productToCartValues():ProductToCartValues{
+        return {
+            productDTO:this.productDTO,
+            unit:this.flowerUnitEnum,
+            quantity: 1
+        }
+    }
+    public uppercaseFlowerType(){
+        return this.productDTO.flowerType.toString().replace("_", " ").toUpperCase();
     }
     public getDisplayPrice(){
         const price = this.getCurrentPriceOnFlowerUnit()
@@ -29,7 +37,4 @@ export class FlowerProductClass extends ProductClass {
                 return this.productDTO.currentPrice.quarterPrice;
         }
     }
-
-
-
 }

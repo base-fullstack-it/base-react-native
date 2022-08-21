@@ -11,6 +11,8 @@ export abstract class ProductClass {
         const priceTransformed = Number.isInteger(price) ?  price : parseFloat(price.toString()).toFixed(2);
         return '$' + priceTransformed;
     }
+    abstract productToCartValues(): void; // must be implemented in derived classes
+
 
 
 }
