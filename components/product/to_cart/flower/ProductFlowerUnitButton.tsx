@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {StyleSheet} from "react-native";
 import {Button} from "@rneui/themed";
-import {ProductDTO} from "../../../../model/dto/ProductDTO";
-import {FlowerUnitDTO} from "../../../../model/dto/FlowerUnitDTO";
+import {FlowerProductClass} from "../../../../model/class/product/FlowerProductClass";
 
 // export default ({product, unit, orderDetailInCartForProduct}) =>{
-export default ({product, unit}:{product:ProductDTO,unit:FlowerUnitDTO}) =>{
+export default ({flowerProductClass}:{flowerProductClass:FlowerProductClass}) =>{
+    // console.log(product,"PRODUCCTRR",unit,'unit')
     // const dispatch = useDispatch();
     // const price = product.currentPrice[`${unit.name}Price`] || null;//https://stackoverflow.com/questions/60709946/using-or-syntax-inside-of-react-usestate-for-assignment
     // const displayPrice = createDisplayPrice(price);
