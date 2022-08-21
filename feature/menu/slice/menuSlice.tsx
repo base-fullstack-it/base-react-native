@@ -45,7 +45,15 @@ export const selectedProductsForCategory = createSelector(
     (products:ReadonlyArray<ProductDTO>, categoryId):ProductDTO[] =>
         products.filter(product => product.productCategories.some(productCategoryFromProduct => productCategoryFromProduct.id === categoryId))
 );
-
+export const selectedProductById = createSelector(
+    [
+        state => state.menu.products,
+        (state,categoryId) => categoryId
+    ],
+    //https://stackoverflow.com/questions/57262987/filter-array-based-on-value-inside-another-array
+    (products:ReadonlyArray<ProductDTO>, productId):ProductDTO | undefined =>
+        products.find(product => product.id === productId)
+);
 export const { setMenu } = menuSlice.actions;
 
 export default menuSlice.reducer;

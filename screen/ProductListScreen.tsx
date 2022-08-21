@@ -14,11 +14,11 @@ const keyExtractor = (productDTO:ProductDTO, index:number) => index.toString()
 export default () => {
     const route = useRoute<RouteProp<ProductListScreenParam>>();
     const {categoryId} = route.params;
-    const productDTO = useSelector<RootState,ProductDTO[]>(state => selectedProductsForCategory(state, categoryId));
+    const productDTOList = useSelector<RootState,ProductDTO[]>(state => selectedProductsForCategory(state, categoryId));
 
     return  <FlatList
     keyExtractor={keyExtractor}
-    data={productDTO}
+    data={productDTOList}
     renderItem={renderItem}></FlatList>
 
 }

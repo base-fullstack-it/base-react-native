@@ -11,6 +11,7 @@ export interface ProductDTO {
     readonly productType:string;
     readonly name:string;
     readonly imageLocation:string;
+    readonly flowerType:string;
 }
 // Object {
 //     "cbdMg": 5,

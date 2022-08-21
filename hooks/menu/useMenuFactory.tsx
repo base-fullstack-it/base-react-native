@@ -50,8 +50,6 @@ export default (menuType:MenuLocationTypes):MenuLoadingValues => {
         dispatch(setMenu(menuData));
 
     },[menuData])
-    useEffect(()=>{console.log(isUninitialized,'isUninitialized',isLoading,'99r555esul22t444')})
-    // return isFetching;
     return {isUninitialized,isLoading,isFetching}
 
 }
