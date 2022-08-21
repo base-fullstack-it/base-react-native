@@ -60,7 +60,7 @@ const cartSlice = createSlice({
                 })
                 .filter((item) => item.amount !== 0);
         },
-        clearCart: (state, action) => {
+        clearCart: (state) => {
             state.items = [];
         },
         getCartItems: (state) => {

@@ -9,6 +9,7 @@ type LogoutFunction = () => Promise<void>;
 export default ():{ handleLogout: () => Promise<void> } => {
     const dispatch = useAppDispatch();
     const handleLogout = async () => {
+        dispatch(clearCart())
         await AsyncStorage.clear();
         dispatch(logout());
         Toast.show({
