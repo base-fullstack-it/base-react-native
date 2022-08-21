@@ -1,4 +1,6 @@
-export const FLOWER_UNITS = {
+import {FlowerUnitsDTO} from "../dto/FlowerUnitsDTO";
+
+export const FLOWER_UNITS:FlowerUnitsDTO = {
     oz: {name: 'oz', label: '1'},
     half: {name: 'half', label: '1/2'},
     quarter: {name: 'quarter', label: '1/4'},
