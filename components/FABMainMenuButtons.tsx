@@ -24,11 +24,13 @@ export default () => {
             color={"white"}
             type={"antdesign"}
             name='shoppingcart' />
-            <Badge
-                containerStyle={{position:'absolute',left:28,bottom:31}}
-                status={"error"}
-                value={totalCount}
-            />
+            {totalCount > 0 &&
+                <Badge
+                    containerStyle={{position: 'absolute', left: 28, bottom: 31}}
+                    status={"error"}
+                    value={totalCount}
+                />
+            }
 
         </FAB>
     </>
