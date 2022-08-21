@@ -10,7 +10,7 @@ export interface CartState {
 }
 
 const initialState: CartState = {
-    productCartList: [],
+    productCartList: [] as ProductToCartValues[],
     totalAmount: 0,
     totalCount: 0,
 
@@ -82,6 +82,7 @@ const cartSlice = createSlice({
             const itemInCart = state.productCartList && state.productCartList.find((productCartValue) => productCartValue.productDTO.id === action.payload.id);
             if (itemInCart) itemInCart.quantity++;
             else state.productCartList.push({ ...action.payload});
+            // else state.productCartList.push({});
         }
     },
 });
