@@ -3,11 +3,13 @@ import RightDrawerScreen from "../../feature/drawer/right/RightDrawerScreen";
 import ProfileScreen from "../../screen/ProfileScreen";
 import {Button, Icon, useTheme} from "@rneui/themed";
 import CheckoutScreen from "../../screen/CheckoutScreen";
-import ProductDetailScreen from "../../screen/ProductDetailScreen";
+import { TransitionPresets } from '@react-navigation/stack';
+
 import useMenuFactory from "../../hooks/menu/useMenuFactory";
 import MenuLocationTypes from "../../model/enum/MenuLocationTypes";
 import SplashView from "../../components/SplashView";
 import {useEffect} from "react";
+import ProductDetailScreen from "../../screen/ProductDetailScreen";
 
 export type AuthorizedParamList = {
     Main: undefined;
@@ -70,6 +72,8 @@ export default () => {
                     component={ProductDetailScreen}
                     options={({route, navigation}: { route: any, navigation: any }) => ({
                         headerTitle: route.params.name,
+                        presentation: "modal"
+                        // ...TransitionPresets.Modal
                     })
                     }
                 />

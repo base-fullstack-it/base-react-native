@@ -6,14 +6,13 @@ import {useSelector} from "react-redux";
 import {RootState} from "../app/store";
 import {ProductDTO} from "../model/dto/ProductDTO";
 import {selectedProductById} from "../feature/menu/slice/menuSlice";
-import {useEffect} from "react";
 
 export default () => {
 
     const route = useRoute<RouteProp<ProductDetailScreenParam>>();
     const { id } = route.params
     const productDTO = useSelector<RootState,ProductDTO | undefined>(state => selectedProductById(state, id));
-    if(productDTO === undefined) return;//throw error product not found?
+    if(productDTO === undefined) return null;//throw error product not found?
 
     const {
         id:productId,
