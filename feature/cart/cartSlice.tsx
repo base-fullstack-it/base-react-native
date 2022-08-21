@@ -4,9 +4,9 @@ import {ProductDTO} from "../../model/dto/ProductDTO";
 import {ProductToCartValues} from "../../model/dto/ProductToCartValues";
 
 export interface CartState {
-    readonly productCartList: ReadonlyArray<ProductToCartValues>,
-    readonly totalAmount: number,
-    readonly totalCount: number
+    productCartList: ProductToCartValues[],
+    totalAmount: number,
+    totalCount: number
 }
 
 const initialState: CartState = {
@@ -21,13 +21,7 @@ type numberReducer = {
 }
 const cartSlice = createSlice({
     name: "cart",
-    // initialState: {
-    //     items: data,
-    //     totalAmount: 0,
-    //     totalCount: 0,
-    // },
     initialState,
-
     reducers: {
         getCartTotal: (state) => {
             if (state.productCartList && state.productCartList.length > 0) {
@@ -84,8 +78,10 @@ const cartSlice = createSlice({
         },
 
         addProductToCart: (state, action) => {
-            console.log(action.payload, "actionpayloadYOU MADE IT HERE")
-            // state.items.push(action.payload);
+            console.log(action.payload, "actionp22ayloadssADDD")
+            const itemInCart = state.productCartList && state.productCartList.find((productCartValue) => productCartValue.productDTO.id === action.payload.id);
+            if (itemInCart) itemInCart.quantity++;
+            else state.productCartList.push({ ...action.payload});
         }
     },
 });

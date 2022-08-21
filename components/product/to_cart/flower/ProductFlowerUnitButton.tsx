@@ -17,7 +17,6 @@ export default ({flowerProductClass}:{flowerProductClass:FlowerProductClass}) =>
     // const displayPrice = createDisplayPrice(price);
 
     // const handleAddProductToCart = () => dispatch(addProductToCart(product, unit.name));
-
     //TODO: add props verified to disabled
     //|| !this.props.docsVerified}
     return <Button
