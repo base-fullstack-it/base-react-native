@@ -5,7 +5,6 @@ import Toast from "react-native-toast-message";
 import {clearCart} from "../feature/cart/cartSlice";
 import {persistor} from "../app/store";
 
-
 type LogoutFunction = () => Promise<void>;
 
 export default ():{ handleLogout: () => Promise<void> } => {

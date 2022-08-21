@@ -6,7 +6,6 @@ import useNavigateToProductList from "../../hooks/navigation/useNavigateToProduc
 import useNavigateToProductDetail from "../../hooks/navigation/useNavigateToProductDetail";
 
 export default ({productDTO}: { productDTO: ProductDTO }) =>{
-    console.log(productDTO,'productDTO4444productDTO')
 
     const handleNavigate = useNavigateToProductDetail();
     const handlePress = () => {

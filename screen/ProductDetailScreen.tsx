@@ -6,19 +6,19 @@ import {useSelector} from "react-redux";
 import {RootState} from "../app/store";
 import {ProductDTO} from "../model/dto/ProductDTO";
 import {selectedProductById} from "../feature/menu/slice/menuSlice";
+import ProductButtonFactory from "../components/product/to_cart/ProductButtonFactory";
 
 export default () => {
 
     const route = useRoute<RouteProp<ProductDetailScreenParam>>();
     const { id } = route.params
     const productDTO = useSelector<RootState,ProductDTO | undefined>(state => selectedProductById(state, id));
-    if(productDTO === undefined) return null;//throw error product not found?
+    if(productDTO === undefined) return null;//TODO: throw error product not found?
 
     const {
         id:productId,
         // flowerType
     } =  productDTO ;
-
 
     return (
         <>
@@ -26,6 +26,10 @@ export default () => {
                 <Text>Product detail</Text>
                 <Text>{productId}</Text>
                 {/*<Text>{flowerType}</Text>*/}
+                <ProductButtonFactory
+                    productDTO={productDTO}
+                />
+
             </View>
             <FABAddProductButton/>
         </>

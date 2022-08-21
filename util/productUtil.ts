@@ -28,7 +28,7 @@ export const createDisplayPrice = (price:any) => {
     return '$' + priceTransformed;
 }
 
-export const uppercaseFlowerType = (product:ProductDTO) => {
+export const uppercaseFlowerType = (product:any) => {
     const strLiteral = product.flowerType.toString();
     return product.flowerType.replace("_", " ").toUpperCase();
 }
