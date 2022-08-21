@@ -7,7 +7,7 @@ import {useAppDispatch} from "../../app/hooks";
 
 export default (menuType:MenuLocationTypes) => {
     const {data} = useLoggedInUserQuery();
-    const [triggerGetMenu, result] = useLazyGetMenuQuery();
+    const [triggerGetMenu, result,isLoading] = useLazyGetMenuQuery();
     const dispatch = useAppDispatch();
     //if is full menu then we need the dspr id
     useEffect(() => {
@@ -39,10 +39,12 @@ export default (menuType:MenuLocationTypes) => {
     }, [data]);
 
     useEffect(()=>{
-        if(!result.data) return;
+        console.log(isLoading,'isLOADING')
+        if(!result.data) return ;
         // console.log(result.data,"DI22D I MAKE IT HERE")
         dispatch(setMenu(result.data));
 
     },[result])
+    // return isFetching;
 
 }

@@ -1,13 +1,20 @@
 import {View, Text} from "react-native";
-import {FAB, Icon} from "@rneui/themed";
 import FABAddProductButton from "../components/FABAddProductButton";
+import {RouteProp, useRoute} from "@react-navigation/native";
+import {ProductDetailScreenParam} from "../hooks/navigation/useNavigateToProductDetail";
 
 export default () => {
 
-    return<><View>
+    const route = useRoute<RouteProp<ProductDetailScreenParam>>();
 
-        <Text>Product detail</Text>
-    </View>
-        <FABAddProductButton/>
+    const { id } = route.params
+
+    return (
+        <>
+            <View>
+                <Text>Product detail</Text>
+            </View>
+            <FABAddProductButton/>
         </>
+    )
 }
