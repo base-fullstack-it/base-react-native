@@ -1,17 +1,28 @@
-import {CurrentPriceDTO} from "./CurrentPriceDTO";
+import {DSPRProductPriceHistoryDTO} from "./DSPRProductPriceHistoryDTO";
 import {ProductCategoryDTO} from "./ProductCategoryDTO";
+import FlowerTypeOrder from "../enum/FlowerTypeOrder";
 
 export interface ProductDTO {
     readonly id:number;
     readonly cbdMg:number;
-    readonly price:number
+    readonly thcMg:number;
+    readonly thcPercentage:number;
     readonly cbdPercentage:number;
-    readonly currentPrice:Readonly<CurrentPriceDTO>;
+    readonly cbnPercentage:number;
+    readonly price:number
+    readonly currentPrice:Readonly<DSPRProductPriceHistoryDTO>;
     readonly productCategories:ReadonlyArray<ProductCategoryDTO>;
     readonly productType:string;
+    readonly description:string;
     readonly name:string;
     readonly imageLocation:string;
-    readonly flowerType:string;
+    // readonly flowerType:string;
+    // readonly flowerTypeOrder:FlowerTypeOrder;
+    readonly flowerType:FlowerTypeOrder;
+    readonly isFlower: boolean;
+    readonly isActive: boolean;
+
+
 }
 // Object {
 //     "cbdMg": 5,

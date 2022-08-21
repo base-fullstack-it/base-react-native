@@ -16,7 +16,7 @@ export default () => {
 
     const {
         id:productId,
-        flowerType
+        // flowerType
     } =  productDTO ;
 
 
@@ -25,7 +25,7 @@ export default () => {
             <View>
                 <Text>Product detail</Text>
                 <Text>{productId}</Text>
-                <Text>{flowerType}</Text>
+                {/*<Text>{flowerType}</Text>*/}
             </View>
             <FABAddProductButton/>
         </>
