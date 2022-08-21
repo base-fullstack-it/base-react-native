@@ -36,7 +36,6 @@ export default ({loginUser,isLoading}:LoginFormInterface) => {
             // actions.setSubmitting(false);
             // actions.resetForm(initialFormState);//TODO uncomment this it works well some sort of inbuilt function
             setOpen(true);
-            console.log(values,'SUBMISS'); // test
         await loginUser(values);
 
         // }, 2000)

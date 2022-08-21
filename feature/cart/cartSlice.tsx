@@ -78,11 +78,10 @@ const cartSlice = createSlice({
         },
 
         addProductToCart: (state, action) => {
-            console.log(action.payload, "actionp22ayloadssADDD")
+            // console.log(state.productCartList, "22actionp22ayloadssADDD")
             const itemInCart = state.productCartList && state.productCartList.find((productCartValue) => productCartValue.productDTO.id === action.payload.id);
             if (itemInCart) itemInCart.quantity++;
             else state.productCartList.push({ ...action.payload});
-            // else state.productCartList.push({});
         }
     },
 });
