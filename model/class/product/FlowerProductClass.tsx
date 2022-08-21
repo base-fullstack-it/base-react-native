@@ -12,8 +12,8 @@ export class FlowerProductClass extends ProductClass {
     }
     public productToCartValues():ProductToCartValues{
         return {
-            productDTO:this.productDTO,
-            unit:this.flowerUnitEnum,
+            productDTO: this.productDTO,
+            unit: this.getCurrentPriceOnFlowerUnit(),
             quantity: 1
         }
     }
@@ -25,7 +25,7 @@ export class FlowerProductClass extends ProductClass {
         return super.getDisplayPriceFrom(price);
     }
 
-    private getCurrentPriceOnFlowerUnit() {
+    private getCurrentPriceOnFlowerUnit():number {
         switch(this.flowerUnitEnum){
             case FlowerUnitEnum.eighth:
                 return this.productDTO.currentPrice.eighthPrice;

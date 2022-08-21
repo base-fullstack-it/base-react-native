@@ -22,6 +22,7 @@ export default ({flowerProductClass}:{flowerProductClass:FlowerProductClass}) =>
     return <Button
         buttonStyle={styles.button}
         // onPress={handleAddProductToCart}
+        onPress={()=>console.log("TROL",flowerProductClass.productToCartValues())}
         // title={displayPrice}
         title={flowerProductClass.getDisplayPrice()}
         // disabled={(orderDetailInCartForProduct && orderDetailInCartForProduct.unit === unit.name)}
