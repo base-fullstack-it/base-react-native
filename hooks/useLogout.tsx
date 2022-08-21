@@ -14,8 +14,7 @@ export default ():{ handleLogout: () => Promise<void> } => {
     const handleLogout = async () => {
         dispatch(clearCart())
         await AsyncStorage.clear();
-        //https://stackoverflow.com/questions/52296953/how-to-reset-value-of-state-in-a-redux-store
-        await persistor.purge();
+        await persistor.purge(); //https://stackoverflow.com/questions/52296953/how-to-reset-value-of-state-in-a-redux-store
         dispatch(logout());
         Toast.show({
             type: 'primaryGreenColorToast',
