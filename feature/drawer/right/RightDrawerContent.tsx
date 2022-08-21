@@ -6,15 +6,16 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {useSelector} from "react-redux";
 import CartItem from "../../../components/cart/CartItem";
 import { useEffect } from "react";
-import {getCartTotal} from "../../cart/cartSlice";
+import {CartState, getCartTotal} from "../../cart/cartSlice";
 import {useAppDispatch} from "../../../app/hooks";
+import {ProductToCartValues} from "../../../model/dto/ProductToCartValues";
 
 export default (props: DrawerContentComponentProps) => {
-    const { totalAmount, items } = useSelector<any, any>((state) => state.cart);
+    const { totalAmount, productCartList } = useSelector<any, CartState>((state) => state.cart);
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(getCartTotal());
-    }, [items]);
+    }, [productCartList]);
     // return
     return (
         <SafeAreaProvider>
@@ -28,7 +29,7 @@ export default (props: DrawerContentComponentProps) => {
         }}
         />
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                {items.map((item:any) => <CartItem item={item}/>)}
+                {productCartList.map((productToCartValues:ProductToCartValues) => <CartItem productToCartValues={productToCartValues}/>)}
                 <Text>${totalAmount}</Text>
 
                 <RightDrawerToCheckOutButton/>
