@@ -13,7 +13,7 @@ export class FlowerProductClass extends ProductClass {
     public productToCartValues():ProductToCartValues{
         return {
             productDTO: this.productDTO,
-            unit: this.getCurrentPriceOnFlowerUnit(),
+            unit: this.flowerUnitEnum,
             quantity: 1
         }
     }
