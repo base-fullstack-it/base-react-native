@@ -4,6 +4,10 @@ import ProfileScreen from "../../screen/ProfileScreen";
 import {Button, Icon, useTheme} from "@rneui/themed";
 import CheckoutScreen from "../../screen/CheckoutScreen";
 import ProductDetailScreen from "../../screen/ProductDetailScreen";
+import useMenuFactory from "../../hooks/menu/useMenuFactory";
+import MenuLocationTypes from "../../model/enum/MenuLocationTypes";
+import SplashView from "../../components/SplashView";
+import {useEffect} from "react";
 
 export type AuthorizedParamList = {
     Main: undefined;
@@ -17,6 +21,8 @@ const Stack = createNativeStackNavigator<AuthorizedParamList>();
 
 export default () => {
     const theme = useTheme();
+    const {isUninitialized,isLoading, isFetching} = useMenuFactory(MenuLocationTypes.DEFAULT_MENU);
+    if( isUninitialized || isLoading || isFetching) return <SplashView/>
     return (
         <Stack.Navigator
             initialRouteName='Main'

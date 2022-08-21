@@ -7,6 +7,8 @@ import {getEnvVars} from "../environment";
 import ProductCategoryListItem from "../components/category/ProductCategoryListItem";
 import React from "react";
 import {useTheme} from "@rneui/themed";
+import useMenuFactory from "../hooks/menu/useMenuFactory";
+import MenuLocationTypes from "../model/enum/MenuLocationTypes";
 const { apiUrl } = getEnvVars();
 const renderItem = ({ item }:{item:ProductCategoryDTO}) => {
     return <ProductCategoryListItem item={item}/>
@@ -14,6 +16,8 @@ const renderItem = ({ item }:{item:ProductCategoryDTO}) => {
 const keyExtractor = (productCategoryDTO:ProductCategoryDTO, index:number) => index.toString()
 
 export default () => {
+
+
     const menu = useSelector<RootState,MenuState>(selectMenu);
     const theme = useTheme();
 

@@ -5,9 +5,14 @@ import {useLazyGetMenuQuery} from "../../services/menuApiSlice";
 import {setMenu} from "../../feature/menu/slice/menuSlice";
 import {useAppDispatch} from "../../app/hooks";
 
-export default (menuType:MenuLocationTypes) => {
+export interface MenuLoadingValues {
+    isUninitialized:boolean;
+    isLoading:boolean;
+    isFetching:boolean;
+}
+export default (menuType:MenuLocationTypes):MenuLoadingValues => {
     const {data} = useLoggedInUserQuery();
-    const [triggerGetMenu, result,isLoading] = useLazyGetMenuQuery();
+    const [triggerGetMenu, {data:menuData,isLoading,isUninitialized,isFetching}] = useLazyGetMenuQuery();
     const dispatch = useAppDispatch();
     //if is full menu then we need the dspr id
     useEffect(() => {
@@ -39,12 +44,14 @@ export default (menuType:MenuLocationTypes) => {
     }, [data]);
 
     useEffect(()=>{
-        console.log(isLoading,'isLOADING')
-        if(!result.data) return ;
-        // console.log(result.data,"DI22D I MAKE IT HERE")
-        dispatch(setMenu(result.data));
 
-    },[result])
+        if(!menuData) return ;
+        // console.log(result.data,"DI22D I MAKE IT HERE")
+        dispatch(setMenu(menuData));
+
+    },[menuData])
+    useEffect(()=>{console.log(isUninitialized,'isUninitialized',isLoading,'99r555esul22t444')})
     // return isFetching;
+    return {isUninitialized,isLoading,isFetching}
 
 }
