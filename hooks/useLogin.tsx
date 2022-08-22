@@ -24,10 +24,9 @@ export default ():{ isLoading: any; isLoginSuccess: any; handleLogin: (values: L
 
     const handleLogin = async (values:LoginFormValuesInterface) => {
 
-        // console.log(values,'successer')
         const data = await loginUser({...values}).unwrap();
-        console.log(data,'did this work')
         const access_token = data.access_token;
+
         if(access_token) {
             const token_type = ACCESS_TOKEN_TYPES.user;
             await dispatchUserAuth({access_token, token_type});

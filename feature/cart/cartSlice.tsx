@@ -23,6 +23,9 @@ const cartSlice = createSlice({
     name: "cart",
     initialState,
     reducers: {
+
+        //todo: REMOVE THIS we get order total from back end
+        //from order slice
         getCartTotal: (state) => {
             if (state.productCartList && state.productCartList.length > 0) {
                 let {totalAmount, totalCount} = state.productCartList && state.productCartList.reduce<numberReducer>(
@@ -78,8 +81,7 @@ const cartSlice = createSlice({
         },
 
         addProductToCart: (state, action) => {
-            // console.log(state.productCartList, "22actionp22ayloadssADDD")
-            const itemInCart = state.productCartList && state.productCartList.find((productCartValue) => productCartValue.productDTO.id === action.payload.id);
+            const itemInCart = state.productCartList.find((productCartValue) => productCartValue.productDTO.id === action.payload.productDTO.id);
             if (itemInCart) itemInCart.quantity++;
             else state.productCartList.push({ ...action.payload});
         }

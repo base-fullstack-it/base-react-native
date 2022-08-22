@@ -15,6 +15,16 @@ export abstract class ProductClass {
 
     abstract productToCartValues():ProductToCartValues;
 
+    //not done
+    //we need a function that checks again for cart
+    // to
+    public getProductDTOFlower(){
+        if(this.productDTO.isFlower) return; //return oz half etc
+        //if a flower render
+        return this.productDTO.isFlower;
+
+    }
+
 
 
 }
