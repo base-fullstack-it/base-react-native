@@ -1,10 +1,10 @@
 import {ProductDTO} from "../../../model/dto/ProductDTO";
-import FlowerAddToCardButtons from "./flower/FlowerAddToCardButtons";
-import WholeAddToCardButtons from "./whole/WholeAddToCardButtons";
+import FlowerButtonFactory from "./flower/FlowerButtonFactory";
+import WholeButtonFactory from "./whole/WholeButtonFactory";
 
 export default ({productDTO}:{productDTO:ProductDTO}) => {
 
-    if(productDTO.isFlower) return <FlowerAddToCardButtons productDTO={productDTO} />;
-    else return <WholeAddToCardButtons productDTO={productDTO} />;
+    if(productDTO.isFlower) return <FlowerButtonFactory productDTO={productDTO} />;
+    else return <WholeButtonFactory productDTO={productDTO} />;
 
 }
