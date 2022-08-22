@@ -1,13 +1,12 @@
 import WholeUnitButton from "./WholeUnitButton";
 import {ProductDTO} from "../../../../model/dto/ProductDTO";
+import {WholeProductClass} from "../../../../model/class/product/WholeProductClass";
 
 export default ({productDTO}:{productDTO:ProductDTO}) => {
     const wholeUnitButtons = [];
-    //the index is also used as a multiplier
     for(let i = 1; i<=4;i++) wholeUnitButtons.push(
         <WholeUnitButton
-            idx={i}
-            product={productDTO}
+            wholeProductClass={new WholeProductClass(productDTO,i)}
             // orderDetailInCartForProduct={orderDetailInCartForProduct}
         />
     )

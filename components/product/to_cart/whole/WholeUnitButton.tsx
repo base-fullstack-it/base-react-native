@@ -7,9 +7,8 @@ import {useAppDispatch} from "../../../../app/hooks";
 import {addProductToCart} from "../../../../feature/cart/cartSlice";
 
 
-export default ({idx,product}:{idx:number,product:ProductDTO}) =>{
+export default ({wholeProductClass}:{wholeProductClass:WholeProductClass}) =>{
     const dispatch = useAppDispatch();
-    const wholeProductClass = new WholeProductClass(product,idx);
 
     return <Button
         buttonStyle={styles.button}
