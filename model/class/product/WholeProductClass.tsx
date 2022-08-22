@@ -14,7 +14,7 @@ export class WholeProductClass extends ProductClass{
     productToCartValues(): ProductToCartValues {
         return {
             productDTO: this.productDTO,
-            quantity: 1
+            quantity: this.idx
         }
     }
     public getDisplayPrice(){

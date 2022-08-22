@@ -3,21 +3,20 @@ import {StyleSheet} from "react-native";
 import {Button} from "@rneui/themed";
 import {ProductDTO} from "../../../../model/dto/ProductDTO";
 import {WholeProductClass} from "../../../../model/class/product/WholeProductClass";
+import {useAppDispatch} from "../../../../app/hooks";
+import {addProductToCart} from "../../../../feature/cart/cartSlice";
 
 
-// export default ({idx,product, orderDetailInCartForProduct}) =>{
 export default ({idx,product}:{idx:number,product:ProductDTO}) =>{
-    // const dispatch = useDispatch();
-    // const handleAddProductToCart = () => dispatch(addProductToCart(product, undefined,idx));
+    const dispatch = useAppDispatch();
     const wholeProductClass = new WholeProductClass(product,idx);
 
-    // const price = product.currentPrice.price * idx;
-    // const displayPrice = createDisplayPrice(price);
     return <Button
         buttonStyle={styles.button}
-        // onPress={handleAddProductToCart}
+        onPress={
+            () => dispatch(addProductToCart(wholeProductClass.productToCartValues()))
+        }
         title={wholeProductClass.getDisplayPrice()}
-        // title={displayPrice}
         // disabled={(orderDetailInCartForProduct && idx === orderDetailInCartForProduct.quantity)}
         />
 
