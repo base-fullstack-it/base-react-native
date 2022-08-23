@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import 'react-native-gesture-handler';
 import {Provider} from "react-redux";
 import {persistor, store} from "./app/store";
@@ -10,6 +10,7 @@ import {theme} from "./theme/rneuiTheme";
 import SplashScreen from "./screen/SplashScreen";
 import useCustomFonts from "./hooks/useCustomFonts";
 import { PersistGate } from "redux-persist/integration/react";
+import useLogout from "./hooks/useLogout";
 
 export default function App() {
     useCustomFonts();

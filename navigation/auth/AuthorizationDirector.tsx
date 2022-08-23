@@ -2,6 +2,8 @@ import {useSelector} from "react-redux";
 import {ACCESS_TOKEN_TYPES, selectAuth} from "../../feature/auth/slice/authSlice";
 import NotAuthorizedNavigator from "./NotAuthorizedNavigator";
 import AuthorizedNavigator from "./AuthorizedNavigator";
+import useLogout from "../../hooks/useLogout";
+import {useEffect} from "react";
 
 export default () => {
     const auth = useSelector(selectAuth);
