@@ -44,7 +44,7 @@ export default (props: DrawerContentComponentProps) => {
 
             {/*</View>*/}
                 <View>
-                <Text>Total: ${totalAmount}</Text>
+                <Text style={{marginBottom:5}}>Total: ${totalAmount}</Text>
                 <RightDrawerToCheckOutButton/>
                 </View>
             </SafeAreaView>
