@@ -38,7 +38,7 @@ export default ():{ isLoading: any; isRegisterSuccess: any; registerData: any; h
                 text1: 'Welcome To Grassp Health!',
                 text2: 'Now please log in',
                 onPress: () => Toast.hide(),
-                visibilityTime:1400
+                visibilityTime:5400
                 // autoHide:false
             });
         }

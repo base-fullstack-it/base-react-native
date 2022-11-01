@@ -23,15 +23,15 @@ export default () => {
     return (
         <>
             <View>
-                <Text>Product detail</Text>
-                <Text>{productId}</Text>
+                {/*<Text>Product detail</Text>*/}
+                {/*<Text>{productId}</Text>*/}
                 {/*<Text>{flowerType}</Text>*/}
                 <ProductButtonFactory
                     productDTO={productDTO}
                 />
 
             </View>
-            <FABAddProductButton/>
+            {/*<FABAddProductButton/>*/}
         </>
     )
 }

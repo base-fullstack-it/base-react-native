@@ -1,4 +1,4 @@
-import {View, Text, StatusBar, StyleSheet, SafeAreaView} from "react-native";
+import {View, Text, StatusBar,StyleSheet} from "react-native";
 import {DrawerContentComponentProps} from "@react-navigation/drawer";
 import RightDrawerToCheckOutButton from "../../../components/checkout/RightDrawerToCheckOutButton";
 import { Header } from "@rneui/themed";
@@ -28,27 +28,14 @@ export default (props: DrawerContentComponentProps) => {
                 ]
         }}
         />
-            <SafeAreaView style={
-                {
-                    alignItems:"flex-start",alignContent:"space-between",
-                    justifyContent:"space-between",
-                    flex:1,
-                    marginBottom:26,
-                    marginLeft:23
-
-                }}>
-            {/*<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',  }}>*/}
-                <View>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                 {productCartList.map((productToCartValues:ProductToCartValues) => <CartItem productToCartValues={productToCartValues}/>)}
-                </View>
 
-            {/*</View>*/}
-                <View>
-                <Text style={{marginBottom:5}}>Total: ${totalAmount}</Text>
+            </View>
+            <View style={{marginBottom: 30, marginLeft:15}}>
+                <Text style={{padding:5}}>Total: ${totalAmount}</Text>
                 <RightDrawerToCheckOutButton/>
-                </View>
-            </SafeAreaView>
-
+            </View>
         </SafeAreaProvider>
 )
     // </View>
