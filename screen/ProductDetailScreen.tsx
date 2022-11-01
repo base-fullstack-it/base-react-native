@@ -24,6 +24,9 @@ export default () => {
         <>
             <View>
                 {/*<Text>Product detail</Text>*/}
+                <View>
+                    <Text>Lorem Ipsu</Text>
+                </View>
                 {/*<Text>{productId}</Text>*/}
                 {/*<Text>{flowerType}</Text>*/}
                 <ProductButtonFactory

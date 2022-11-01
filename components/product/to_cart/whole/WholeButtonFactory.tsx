@@ -10,5 +10,9 @@ export default ({productDTO}:{productDTO:ProductDTO}) => {
             // orderDetailInCartForProduct={orderDetailInCartForProduct}
         />
     )
-    return <>{wholeUnitButtons}</>
+    // return <>{wholeUnitButtons}</>
+    return   <WholeUnitButton
+        wholeProductClass={new WholeProductClass(productDTO,1)}
+        // orderDetailInCartForProduct={orderDetailInCartForProduct}
+    />
 }

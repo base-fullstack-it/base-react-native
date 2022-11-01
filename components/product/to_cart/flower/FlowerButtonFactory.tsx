@@ -6,7 +6,7 @@ import FlowerButtonOneQuantityFactory from "./FlowerButtonOneQuantityFactory";
 //TODO: add the functionality to render the appropriate flower base on quanityt available etc
 export default ({productDTO}: { productDTO: ProductDTO }) => {
     // const currentQuantityAvailableForProduct = useSelector(state => getCurrentQuantityAvailableForProduct(state,product.id));
-    const currentQuantityAvailableForProduct = 12;
+    const currentQuantityAvailableForProduct = 1;
 
     return <>
         <FlowerButtonOneQuantityFactory
