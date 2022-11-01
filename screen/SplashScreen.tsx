@@ -8,7 +8,7 @@ import {useEffect} from "react";
 SplashScreen.preventAutoHideAsync();
 export default () =>{
     // const {handleLogout} = useLogout();
-    // useEffect(()=>{handleLogout},[])
+    // useEffect(()=>{handleLogout()},[])
 
     const isAppLoaded = useGetAccessTokenDataFromAsyncStorage();
 

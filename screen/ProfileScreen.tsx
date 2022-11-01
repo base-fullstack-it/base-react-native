@@ -20,11 +20,11 @@ const ProfileScreen = () =>{
         }}>
             <StatusBar barStyle="light-content"/>
 
-            <Text>Add Id Document</Text>
-            <Text>Add Medical Recommendation</Text>
-            <Text>Basic Information</Text>
-            <Text>Delivery Address</Text>
-            <Text>Signature</Text>
+            {/*<Text>Add Id Document</Text>*/}
+            {/*<Text>Add Medical Recommendation</Text>*/}
+            {/*<Text>Basic Information</Text>*/}
+            {/*<Text>Delivery Address</Text>*/}
+            {/*<Text>Signature</Text>*/}
         </View>
         <Logout />
 
